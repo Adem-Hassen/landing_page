@@ -1,6 +1,4 @@
 import "./LandingPage.css";
-import emailjs from '@emailjs/browser';
-
 import NavBar from "../components/NavBar.tsx";
 import VideoPlayer from "../components/VideoPlayer.tsx";
 import Button from "../components/Button.tsx";
@@ -432,7 +430,7 @@ const rotateCards = () => {
   };
 
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
+let scrollTimeout: ReturnType<typeof setTimeout>;
 
     const handleScroll = () => {
       const heroSection = document.getElementById('section1');
@@ -1145,7 +1143,7 @@ const toggleFAQ = (index: number) => {
         className="w-full"
       >
         <CarouselContent>
-          {resultsData.map((result, index) => (
+          {resultsData.map((result) => (
             <CarouselItem key={result.id} className="basis-full">
               <div className="p-4">
                 <div className="screenshot-card">
