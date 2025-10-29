@@ -498,7 +498,7 @@
 .problems-container {
   width: 1500px;
   max-width: 90%; /* Added max-width for better responsiveness */
-  margin: 0 auto;
+  margin: 5rem auto;
   text-align: center;
   
   /* Shadow Box Container */
@@ -2661,7 +2661,7 @@
 
 .course-content-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
   text-align: center;
   position: relative;
@@ -2718,7 +2718,7 @@
 /* Carousel Container - Centered with Fixed Size */
 .carousel-container {
   width: 100%;
-  max-width: 1200px; /* Fixed maximum size */
+  max-width: 1800px; /* Fixed maximum size */
   margin: 0 auto; /* Center the container */
   display: flex;
   justify-content: center;
@@ -2728,7 +2728,7 @@
 .carousel {
   position: relative;
   width: 100%; /* Take full width of container */
-  max-width: 1200px; /* Match container max-width */
+  ; /* Match container max-width */
 }
 
 .carousel-content {
@@ -2903,7 +2903,7 @@
 .module-number {
   position: absolute;
   top: 8.3rem;
-  right: 9.58rem;
+  right: 7rem;
   width: 35px;
   height: 35px;
   background: rgba(30, 78, 216, 0.2);
@@ -4494,7 +4494,56 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+/* Make both flip cards the same height */
+.flip-card,
+.contact-flip-card {
+  perspective: 1000px;
+  height: 600px;
+  min-height: 600px;
+}
 
+.contact-flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.contact-flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.contact-flip-card .flip-card-front,
+.contact-flip-card .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.contact-flip-card .flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Style for the additional info in contact card back */
+.additional-info {
+  padding: 2rem;
+  text-align: center;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+  direction: rtl;
+}
+
+/* Ensure both cards have consistent styling */
+.contact-flip-card .contact-info-card,
+.contact-flip-card .contact-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 /* Flip Card */
 .flip-card {
   perspective: 1000px;
@@ -4703,20 +4752,15 @@
 
 /* Contact Actions */
 .contact-actions {
+  width: 150px;
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  margin-top: auto; /* Push to bottom */
+  padding-top: 1.5rem;
 }
 
-.whatsapp-btn {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  border: none;
-  flex: 1;
-}
 
-.email-btn {
-  flex: 1;
-}
+
+
 
 /* Contact Info Card */
 .contact-info-card {
@@ -4904,10 +4948,7 @@
 }
 
 /* Fix contact actions positioning */
-.contact-actions {
-  margin-top: auto; /* Push to bottom */
-  padding-top: 1.5rem;
-}
+
 
 /* Fix form group spacing */
 .form-group {
@@ -5287,4 +5328,113 @@ button {
   filter: blur(20px);
   animation: cornerGlow 3s ease-in-out infinite 2s;
   z-index: -1;
+}
+
+/* ===== FOOTER SECTION STYLES ===== */
+.footer-section {
+  background: transparent;
+  padding: 3rem 20px 2rem;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Copyright */
+.footer-copyright p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  direction: ltr;
+  font-weight: 400;
+}
+
+/* Links with Icons */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  direction: rtl;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.footer-link:hover {
+  color: #60a5fa;
+  transform: translateY(-2px);
+}
+
+.footer-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-link:hover .footer-icon {
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 2.5rem 15px 1.5rem;
+  }
+  
+  .footer-links {
+    gap: 1.5rem;
+  }
+  
+  .footer-link {
+    font-size: 0.85rem;
+    gap: 0.4rem;
+  }
+  
+  .footer-copyright p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 2rem 10px 1rem;
+  }
+  
+  .footer-links {
+    gap: 1rem;
+  }
+  
+  .footer-link {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+  
+  .footer-copyright p {
+    font-size: 0.8rem;
+  }
+}
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
 }

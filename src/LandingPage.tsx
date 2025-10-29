@@ -10,6 +10,10 @@ import { FaHandsHelping } from "react-icons/fa";
 import { FiTarget } from "react-icons/fi";
 import { GiTunisia } from "react-icons/gi";
 import { FaPhone } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { FaShield } from "react-icons/fa6";
+import { RiContractFill } from "react-icons/ri";
+
 import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
@@ -42,6 +46,7 @@ function LandingPage() {
   const [showIcons, setShowIcons] = useState(true);
   const [isScrolling, setIsScrolling] = useState(false);
   const [currentStartIndex, setCurrentStartIndex] = useState(0);
+  const [validation, setValidation] = useState(true);
 
 const courseModules = [
   {
@@ -468,37 +473,14 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaE
     [name]: value
   }));
 };
-const sendViaEmail = async () => {
-  try {
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      message: formData.message,
-    };
 
-    await emailjs.send(
-      'service_fiiamb4', // Replace with your EmailJS service ID
-      'template_zcgzvvl', // Replace with your EmailJS template ID
-      templateParams,
-      '3GNZWXd6zGcZvv5QC' // Replace with your EmailJS public key
-    );
-    
-    // Show success message
-    alert('تم إرسال طلبك بنجاح! سنتواصل معك قريباً');
-    
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    
-    // Flip back to offer card
-    
-  } catch (error) {
-    alert('حدث خطأ في الإرسال. حاول مرة أخرى');
-    console.error('Email sending failed:', error);
-  }
-};
 
 const sendViaWhatsApp = () => {
+
+   if (!formData.email || !formData.name || !formData.phone) {
+    setValidation(false);
+    return; // Stop if validation fails
+  }
   const { name, email, phone, message } = formData;
   
   const text = `
@@ -577,7 +559,7 @@ const toggleFAQ = (index: number) => {
             variant="outline"
             size="lg"
             className="btn-glow"
-            onClick={() => (window.location.href = "#section1")}
+            onClick={() => (window.location.href = "#section9")}
           >
             إنضم إلينا وأبدى رحلتك توا
           </Button>
@@ -805,7 +787,7 @@ const toggleFAQ = (index: number) => {
                 variant="outline"
                 size="lg"
                 className="btn-glow"
-                onClick={() => (window.location.href = "#section1")}
+                onClick={() => (window.location.href = "#section9")}
               >
                 إبدأ رحلتك نحو النجاح توا
               </Button>
@@ -843,7 +825,7 @@ const toggleFAQ = (index: number) => {
               >
                 <CarouselContent>
                   {courseModules.map((item, index) => (
-                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
                       <div className="p-1">
                         <Card className="h-full">
                           <CardContent className="flex flex-col h-full p-4">
@@ -881,8 +863,8 @@ const toggleFAQ = (index: number) => {
                   ))}
                 </CarouselContent>
 
-                <CarouselPrevious />
-                <CarouselNext />
+                <CarouselPrevious style={{width:"45px",height:"45px",left:"-60px"}} />
+                <CarouselNext style={{width:"45px",height:"45px" ,right:"-60px"}} />
               </Carousel>
             </div>
           </div>
@@ -959,7 +941,7 @@ const toggleFAQ = (index: number) => {
         variant="outline"
         size="lg"
         className="btn-glow btn-extra-large"
-        onClick={() => (window.location.href = "#section1")}
+        onClick={() => (window.location.href = "#section9")}
       >
  get it now      </Button>
     </div>
@@ -1031,7 +1013,7 @@ const toggleFAQ = (index: number) => {
         variant="outline"
         size="lg"
         className="btn-glow btn-extra-large"
-        onClick={() => (window.location.href = "#section1")}
+        onClick={() => (window.location.href = "#section9")}
       >
  get it now      </Button>
     </div>
@@ -1206,43 +1188,95 @@ const toggleFAQ = (index: number) => {
 
     {/* Flip Cards Container */}
     <div className="flip-cards-container">
+    <div className="flip-card contact-flip-card">
+    <div className="flip-card-inner">
+      {/* Front Side - Contact Info */}
+      <div className="flip-card-front">
         <div className="contact-info-card">
-     <div className="contact-info-header">
-    <div className="header-icon"><FaPhone  size={"2em"}/></div> {/* Changed class name */}
-    <h3>معلومات الاتصال</h3>
-  </div>
-        
-        <div className="contact-info-content">
-          <div className="contact-method">
-            <div className="contact-icon"><FaWhatsapp size={"1.5em"} style={{marginBottom:"0.5rem"}}/>
-</div>
-            <div className="contact-details">
-              <h4>الواتساب</h4>
-              <p>+216 12 345 678</p>
-            </div>
+          <div className="contact-info-header">
+            <div className="header-icon"><FaPhone size={"2em"}/></div>
+            <h3>معلومات الاتصال</h3>
           </div>
           
-          <div className="contact-method">
-            <div className="contact-icon"><MdOutlineMailOutline  size={"1.5em"}/>
-</div>
-            <div className="contact-details">
-              <h4>البريد الإلكتروني</h4>
-              <p>contact@example.com</p>
+          <div className="contact-info-content">
+            <div className="contact-method">
+              <div className="contact-icon"><FaWhatsapp size={"1.5em"} style={{marginBottom:"0.5rem"}}/></div>
+              <div className="contact-details">
+                <h4>الواتساب</h4>
+                <p>+216 12 345 678</p>
+              </div>
+            </div>
+            
+            <div className="contact-method">
+              <div className="contact-icon"><MdOutlineMailOutline size={"1.5em"}/></div>
+              <div className="contact-details">
+                <h4>البريد الإلكتروني</h4>
+                <p>contact@example.com</p>
+              </div>
+            </div>
+            
+            <div className="contact-method">
+              <div className="contact-icon"><BiSupport size={"1.5em"}/></div>
+              <div className="contact-details">
+                <h4>أوقات الدعم</h4>
+                <p>كل أيام الأسبوع من 9 صباحاً إلى 10 مساءً</p>
+              </div>
             </div>
           </div>
-          
-          <div className="contact-method">
-            <div className="contact-icon"><BiSupport size={"1.5em"}/>
-</div>
-            <div className="contact-details">
-              <h4>أوقات الدعم</h4>
-              <p>كل أيام الأسبوع من 9 صباحاً إلى 10 مساءً</p>
-            </div>
-          </div>
-          
-         
         </div>
       </div>
+
+      {/* Back Side - New Content (Add your content here) */}
+      <div className="flip-card-back">
+        <div className="contact-card">
+          <div className="contact-header">
+      <h3 className="offer-title">العرض الخاص</h3>
+      <div className="offer-badge">محدود</div>          
+          </div>
+          
+  <div className="offer-content">
+      <div className="price-section">
+        <div className="price">299 <span className="currency">دينار</span></div>
+        <div className="old-price">599 دينار</div>
+      </div>
+      <div className="animation-section">
+   
+      </div>
+      <div className="offer-features">
+        <div className="feature">
+          <span className="feature-icon">✓</span>
+          <span>كورس كامل من الصفر للإحتراف</span>
+        </div>
+        <div className="feature">
+          <span className="feature-icon">✓</span>
+          <span>دعم مباشر على الواتساب</span>
+        </div>
+        <div className="feature">
+          <span className="feature-icon">✓</span>
+          <span>وصول دائم للمحتوى</span>
+        </div>
+        <div className="feature">
+          <span className="feature-icon">✓</span>
+          <span>مجموعة خاصة بالطلاب</span>
+        </div>
+        <div className="feature">
+          <span className="feature-icon">✓</span>
+          <span>شهادة إتمام</span>
+        </div>
+      </div>
+      
+     
+      
+      <div className="offer-description">
+        <p>لا تفوت فرصة تغيير حياتك. إبدأ رحلتك في التجارة الإلكترونية اليوم!</p>
+      </div>
+    </div>   
+     
+  
+        </div>
+      </div>
+    </div>
+  </div>
       {/* Main Offer Card (Front) */}
       <div className="flip-card">
         <div className="flip-card-inner">
@@ -1295,14 +1329,20 @@ const toggleFAQ = (index: number) => {
     </div>
     
     <div className="offer-actions">
-      <Button
-        variant="outline"
-        size="lg"
-        className="flip-btn"
-        onClick={() => document.querySelector('.flip-card')?.classList.add('flipped')}
-      >
-        سجل الآن
-      </Button>
+       <Button
+    variant="outline"
+    size="lg"
+    className="flip-btn"
+    onClick={() => {
+      const offerCard = document.querySelector('.flip-card:not(.contact-flip-card)');
+      const contactCard = document.querySelector('.contact-flip-card');
+      
+      if (offerCard) offerCard.classList.add('flipped');
+      if (contactCard) contactCard.classList.add('flipped');
+    }}
+  >
+    سجل الآن
+  </Button>
     </div>
   </div>
 </div>
@@ -1312,17 +1352,22 @@ const toggleFAQ = (index: number) => {
             <div className="contact-card">
               <div className="contact-header">
                 <h3 className="contact-title">سجل في الكورس</h3>
-                <button 
-                  className="back-btn"
-                  onClick={() => {
-                    setFormData({ name: '', email: '', phone: '', message: '' });
-
-                    const card = document.querySelector('.flip-card');
-                    if (card) card.classList.remove('flipped');
-                  }}
-                >
-                  رجوع
-                </button>
+               <button 
+  className="back-btn"
+  onClick={() => {
+    setFormData({ name: '', email: '', phone: '', message: '' });
+    setValidation(true);
+    
+    // Flip back both cards
+    const offerCard = document.querySelector('.flip-card:not(.contact-flip-card)');
+    const contactCard = document.querySelector('.contact-flip-card');
+    
+    if (offerCard) offerCard.classList.remove('flipped');
+    if (contactCard) contactCard.classList.remove('flipped');
+  }}
+>
+  رجوع
+</button>
               </div>
               
               <div className="contact-form">
@@ -1334,6 +1379,8 @@ const toggleFAQ = (index: number) => {
       placeholder="أدخل اسمك الكامل" 
       value={formData.name}
       onChange={handleInputChange}
+      className={!validation && !formData.name ? 'error' : ''}
+
     />
   </div>
   
@@ -1345,6 +1392,8 @@ const toggleFAQ = (index: number) => {
       placeholder="example@email.com" 
       value={formData.email}
       onChange={handleInputChange}
+            className={!validation && !formData.email ? 'error' : ''}
+
     />
   </div>
   
@@ -1356,6 +1405,8 @@ const toggleFAQ = (index: number) => {
       placeholder="+216 XX XXX XXX" 
       value={formData.phone}
       onChange={handleInputChange}
+            className={!validation && !formData.phone ? 'error' : ''}
+
     />
   </div>
   
@@ -1372,24 +1423,16 @@ const toggleFAQ = (index: number) => {
 </div>
 
 <div className="contact-actions">
-  <Button
-    variant="outline"
-    size="lg"
-    className="whatsapp-btn"
-    onClick={sendViaWhatsApp}
-    disabled={!formData.name || !formData.phone}
-  >
-    ارسل عبر الواتساب
-  </Button>
+ 
   <Button
     variant="outline"
     size="lg"
     className="email-btn"
-    onClick={sendViaEmail}
-    disabled={!formData.name || !formData.email}
+    onClick={sendViaWhatsApp}
   >
-    ارسل عبر البريد
-  </Button>
+سجل توا  
+
+</Button>
 </div>
             </div>
           </div>
@@ -1478,6 +1521,37 @@ const toggleFAQ = (index: number) => {
     </div>
   </div>
 </section>
+{/* ===== FOOTER SECTION ===== */}
+<footer className="footer-section">
+  <div className="footer-container">
+    {/* Copyright Text */}
+    <div className="footer-copyright">
+      <p>© 2025 Ecom Academy by Mohamed Aziz Eltaief</p>
+    </div>
+    
+    {/* Links with Icons */}
+    <div className="footer-links">
+      <a href="#" className="footer-link">
+        <span className="footer-icon"><RiContractFill  size={"1.5em"} /></span>
+        الشروط
+      </a>
+      <a href="#" className="footer-link">
+        <span className="footer-icon"><FaShield  size={"1.5em"} />
+</span>
+        الخصوصية
+      </a>
+      <a href="#section9" className="footer-link">
+        <span className="footer-icon"><FaPhone size={"1.5em"} /></span>
+        التواصل
+      </a>
+      <a href="https://www.instagram.com/aziz_eltaief_" className="footer-link">
+        <span className="footer-icon"><FaInstagram size={"1.5em"} />
+</span>
+        Instagram
+      </a>
+    </div>
+  </div>
+</footer>
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="logo">
           <a 
             href="#home" 
-            onClick={(e) => handleNavClick(e, '#home')}
+            onClick={(e) => handleNavClick(e, '#section1')}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
             E-com Academy
@@ -87,7 +87,7 @@ export default function Navbar() {
             variant="outline"   
             className="btn-glow" 
             size="lg" 
-            onClick={() => handleSmoothScroll('#pricing')}
+            onClick={() => window.location.href = "#section9"}
           >
             Buy Now 
           </Button>
