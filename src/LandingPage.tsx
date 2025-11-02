@@ -11,10 +11,15 @@ import { FaPhone } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
 import { RiContractFill } from "react-icons/ri";
-
+import { FaGraduationCap } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
+import { MdAccessTimeFilled } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { PiCertificateFill } from "react-icons/pi";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { FaAddressCard } from "react-icons/fa";
 
 import { FaBrain } from "react-icons/fa";
 
@@ -436,7 +441,7 @@ let scrollTimeout: ReturnType<typeof setTimeout>;
       const heroSection = document.getElementById('section1');
       if (heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
-        const shouldShow = heroBottom > 100;
+        const shouldShow = heroBottom > 800;
         
         setIsScrolling(true);
         setShowIcons(shouldShow);
@@ -466,10 +471,21 @@ let scrollTimeout: ReturnType<typeof setTimeout>;
 // Add this handleInputChange function
 const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   const { name, value } = e.target;
-  setFormData(prev => ({
+
+    if (name === 'phone') {
+    // Only allow numbers, +, -, spaces, and parentheses
+    const phoneRegex = /^[0-9+\-\s()]*$/;
+    if (phoneRegex.test(value)) {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+  } else{setFormData(prev => ({
     ...prev,
     [name]: value
-  }));
+  }));}
+  
 };
 
 
@@ -585,10 +601,11 @@ const toggleFAQ = (index: number) => {
             <div className="problems-cards">
               {/* Card 1 */}
               <div className="problem-card">
-                <div className="animation-section">
+              <div className="animation-section">
                   <DotLottieReact
-                    src="Character Confusion.lottie"
+                    src="Scared 2D character.lottie"
                     loop
+                    speed={1.5}
                     autoplay
                     style={{ 
                       width: '500px', 
@@ -597,9 +614,9 @@ const toggleFAQ = (index: number) => {
                   />
                 </div>
                 <div className="content-section">
-                  <h4 className="card-title">معادش عارف منين تتعلم</h4>
+                  <h4 className="card-title">هل نجم نعملها اني زادة</h4>
                   <p className="card-description">
-                    فما برشا معلومات ونتي حاير منين تبدى وكفاش تبدا
+                    بالك صعبة ولا منجمش روحي ولا لزمني راس مل كبر ولا برش وقت
                   </p>
                 </div>
               </div>
@@ -631,11 +648,11 @@ const toggleFAQ = (index: number) => {
 
               {/* Card 3 */}
               <div className="problem-card">
-                <div className="animation-section">
+           
+                       <div className="animation-section">
                   <DotLottieReact
-                    src="Scared 2D character.lottie"
+                    src="Character Confusion.lottie"
                     loop
-                    speed={1.5}
                     autoplay
                     style={{ 
                       width: '500px', 
@@ -644,9 +661,9 @@ const toggleFAQ = (index: number) => {
                   />
                 </div>
                 <div className="content-section">
-                  <h4 className="card-title">هل نجم نعملها اني زادة</h4>
+                  <h4 className="card-title">معادش عارف منين تتعلم</h4>
                   <p className="card-description">
-                    بالك صعبة ولا منجمش روحي ولا لزمني راس مل كبر ولا برش وقت
+                    فما برشا معلومات ونتي حاير منين تبدى وكفاش تبدا
                   </p>
                 </div>
               </div>
@@ -826,7 +843,7 @@ const toggleFAQ = (index: number) => {
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
                       <div className="p-1">
                         <Card className="h-full">
-                          <CardContent className="flex flex-col h-full p-4">
+                          <CardContent className="flex flex-col h-full p-2">
                             {/* Top half: Icon / Animation */}
                             <div className="card-top-half flex-1 flex items-center justify-center">
                               <div className="module-icon text-4xl">
@@ -883,7 +900,13 @@ const toggleFAQ = (index: number) => {
 
             {/* Stacked Cards Carousel */}
             <div className="stacked-cards-container">
-              <div className="stacked-cards">
+                <button 
+      className="nav-arrow prev-arrow"
+      onClick={() => goToCard((currentStartIndex - 1 + courseParts.length) % courseParts.length)}
+    >
+      ‹
+    </button>
+              <div className="stacked-cards"> 
                 {courseParts.map((part, index) => {
                   // Calculate the position based on the current start index
                   const position = (index - currentStartIndex + courseParts.length) % courseParts.length;
@@ -914,7 +937,12 @@ const toggleFAQ = (index: number) => {
                   );
                 })}
               </div>
-
+   <button 
+      className="nav-arrow next-arrow"
+      onClick={() => goToCard((currentStartIndex + 1) % courseParts.length)}
+    >
+      ›
+    </button>
               {/* Navigation Dots */}
               <div className="stacked-cards-indicators">
                 {courseParts.map((part, index) => (
@@ -930,9 +958,7 @@ const toggleFAQ = (index: number) => {
               </div>
 
               {/* Navigation Instructions */}
-              <div className="navigation-hint">
-                <p>انقر على البطاقة الأمامية للانتقال إلى التالية</p>
-              </div>
+          
             </div>
             <div className="course-parts-cta">
       <Button
@@ -1046,25 +1072,28 @@ const toggleFAQ = (index: number) => {
     <div className="why-learn-cards-grid">
       {/* First Row: Profile Card + Reason 1 */}
       <div className="first-row">
-        <div className="profile-card main-card">
-          <div className="profile-content">
-            <div className="profile-image-section">
-              <img 
-                src="image.png" 
-                alt="Ema" 
-                className="profile-image"
-              />
-              <div className="image-overlay-section"></div>
-            
-            </div>
-            <div className="profile-info-section">
-              <h3 className="profile-name">محمد عزيز اللطيف</h3>
-                        <div className="profile-quote">
-                <p>"بديت من الصفر، وعرفت شنوّة المشاكل إلي تواجهك"</p>
-              </div>
-            </div>
-          </div>
-        </div>
+<div className="profile-card main-card">
+  <div className="profile-image-full">
+    <img 
+      src="image.png" 
+      alt="محمد عزيز اللطيف" 
+      className="profile-image"
+    />
+    
+    {/* Gradient Overlays */}
+    <div className="gradient-overlay-top"></div>
+    <div className="gradient-overlay-bottom"></div>
+    <div className="gradient-overlay-sides"></div>
+    
+    {/* Text Content Overlay */}
+    <div className="profile-content-overlay">
+      <h3 className="profile-name">محمد عزيز اللطيف</h3>
+      <div className="profile-quote">
+        <p>"بديت من الصفر، وعرفت شنوّة المشاكل إلي تواجهك"</p>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Reason 1 - Large Rectangle */}
         <div className="reason-card large-rectangle">
@@ -1192,7 +1221,8 @@ const toggleFAQ = (index: number) => {
       <div className="flip-card-front">
         <div className="contact-info-card">
           <div className="contact-info-header">
-            <div className="header-icon"><FaPhone size={"2em"}/></div>
+            <div className="header-icon"><FaAddressCard size={"3.2rem"}/>
+</div>
             <h3>معلومات الاتصال</h3>
           </div>
           
@@ -1235,39 +1265,39 @@ const toggleFAQ = (index: number) => {
   <div className="offer-content">
       <div className="price-section">
         <div className="price">299 <span className="currency">دينار</span></div>
-        <div className="old-price">599 دينار</div>
       </div>
       <div className="animation-section">
    
       </div>
-      <div className="offer-features">
+       <div className="offer-features-back">
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><FaGraduationCap  /></span>
           <span>كورس كامل من الصفر للإحتراف</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><IoLogoWhatsapp />
+</span>
           <span>دعم مباشر على الواتساب</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><MdAccessTimeFilled />
+</span>
           <span>وصول دائم للمحتوى</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
-          <span>مجموعة خاصة بالطلاب</span>
+          <span className="feature-icon"><FaUsers />
+</span>
+          <span >مجموعة خاصة بالطلاب</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><PiCertificateFill /></span>
           <span>شهادة إتمام</span>
         </div>
       </div>
       
      
       
-      <div className="offer-description">
-        <p>لا تفوت فرصة تغيير حياتك. إبدأ رحلتك في التجارة الإلكترونية اليوم!</p>
-      </div>
+     
     </div>   
      
   
@@ -1291,39 +1321,41 @@ const toggleFAQ = (index: number) => {
     <div className="offer-content">
       <div className="price-section">
         <div className="price">299 <span className="currency">دينار</span></div>
-        <div className="old-price">599 دينار</div>
       </div>
-      <div className="animation-section">
-   
+       <div className="features-with-overlay-animation">
+      <div className="animation-overlay">
+   <img src="Online Course.png" alt="" />
+      
+    
       </div>
       <div className="offer-features">
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><FaGraduationCap  /></span>
           <span>كورس كامل من الصفر للإحتراف</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><IoLogoWhatsapp />
+</span>
           <span>دعم مباشر على الواتساب</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><MdAccessTimeFilled />
+</span>
           <span>وصول دائم للمحتوى</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
-          <span>مجموعة خاصة بالطلاب</span>
+          <span className="feature-icon"><FaUsers />
+</span>
+          <span >مجموعة خاصة بالطلاب</span>
         </div>
         <div className="feature">
-          <span className="feature-icon">✓</span>
+          <span className="feature-icon"><PiCertificateFill /></span>
           <span>شهادة إتمام</span>
         </div>
       </div>
-      
-     
-      
-      <div className="offer-description">
-        <p>لا تفوت فرصة تغيير حياتك. إبدأ رحلتك في التجارة الإلكترونية اليوم!</p>
       </div>
+    
+    
     </div>
     
     <div className="offer-actions">
@@ -1389,8 +1421,9 @@ const toggleFAQ = (index: number) => {
       name="email"
       placeholder="example@email.com" 
       value={formData.email}
+      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
       onChange={handleInputChange}
-            className={!validation && !formData.email ? 'error' : ''}
+            className={!validation && (!formData.email.includes('@') || !formData.email.includes('.')) ? 'error' : ''}
 
     />
   </div>
@@ -1401,6 +1434,9 @@ const toggleFAQ = (index: number) => {
       type="tel" 
       name="phone"
       placeholder="+216 XX XXX XXX" 
+       pattern="[0-9+-\s()]*"
+      inputMode="numeric"
+      maxLength="8"
       value={formData.phone}
       onChange={handleInputChange}
             className={!validation && !formData.phone ? 'error' : ''}
@@ -1460,13 +1496,13 @@ const toggleFAQ = (index: number) => {
       {/* FAQ 1 */}
       <div className="faq-item">
         <div className="faq-question" onClick={() => toggleFAQ(0)}>
-          <span className="question-icon">س</span>
+          <span className="question-icon"><p>س</p></span>
           <h3 className="question-text">أنا مبتدئ، نجم ننجح؟</h3>
           <span className="toggle-icon">{openFAQ === 0 ? '−' : '+'}</span>
         </div>
         {openFAQ === 0 && (
           <div className="faq-answer">
-            <span className="answer-icon">ج</span>
+            <span className="answer-icon"><p>ج</p></span>
             <p className="answer-text">أكيد. الكورس معمول باش تبدأ من الصفر خطوة بخطوة.</p>
           </div>
         )}
@@ -1475,13 +1511,13 @@ const toggleFAQ = (index: number) => {
       {/* FAQ 2 */}
       <div className="faq-item">
         <div className="faq-question" onClick={() => toggleFAQ(1)}>
-          <span className="question-icon">س</span>
+          <span className="question-icon"><p>س</p></span>
           <h3 className="question-text">نحتاج ميزانية كبيرة؟</h3>
           <span className="toggle-icon">{openFAQ === 1 ? '−' : '+'}</span>
         </div>
         {openFAQ === 1 && (
           <div className="faq-answer">
-            <span className="answer-icon">ج</span>
+            <span className="answer-icon"><p>ج</p></span>
             <p className="answer-text">لا، نبدأ بأقل تكلفة ونخدم بطريقة ذكية.</p>
           </div>
         )}
@@ -1490,13 +1526,13 @@ const toggleFAQ = (index: number) => {
       {/* FAQ 3 */}
       <div className="faq-item">
         <div className="faq-question" onClick={() => toggleFAQ(2)}>
-          <span className="question-icon">س</span>
+          <span className="question-icon"><p>س</p></span>
           <h3 className="question-text">هل المحتوى مناسب لتونس؟</h3>
           <span className="toggle-icon">{openFAQ === 2 ? '−' : '+'}</span>
         </div>
         {openFAQ === 2 && (
           <div className="faq-answer">
-            <span className="answer-icon">ج</span>
+            <span className="answer-icon"><p>ج</p></span>
             <p className="answer-text">100%. كل الدروس مبنية على تجارب تونسية حقيقية.</p>
           </div>
         )}
@@ -1505,13 +1541,13 @@ const toggleFAQ = (index: number) => {
       {/* FAQ 4 */}
       <div className="faq-item">
         <div className="faq-question" onClick={() => toggleFAQ(3)}>
-          <span className="question-icon">س</span>
+          <span className="question-icon"><p>س</p></span>
           <h3 className="question-text">وقتاش نشوف النتائج؟</h3>
           <span className="toggle-icon">{openFAQ === 3 ? '−' : '+'}</span>
         </div>
         {openFAQ === 3 && (
           <div className="faq-answer">
-            <span className="answer-icon">ج</span>
+            <span className="answer-icon"><p>ج</p></span>
             <p className="answer-text">في العادة من أول 2 إلى 4 أسابيع كي تطبق كل شي بجدية.</p>
           </div>
         )}

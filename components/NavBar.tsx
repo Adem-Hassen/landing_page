@@ -58,7 +58,6 @@ export default function Navbar() {
             className="menu-toggle"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <span className="sr-only">Open main menu</span>
             <div className="hamburger">
               <span></span>
               <span></span>

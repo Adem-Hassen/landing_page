@@ -8,7 +8,7 @@
   
   /* Large video styles */
   .video-player-container.large-video {
-    max-width: 1350px;
+    max-width: 1200px;
     margin: 3rem auto;
   }
   
@@ -34,7 +34,7 @@
   }
   
   .youtube-iframe.large-iframe {
-    height: 700px;
+    height: 650px;
   }
   
   .video-loading {
