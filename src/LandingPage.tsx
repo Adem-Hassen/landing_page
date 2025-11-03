@@ -441,7 +441,7 @@ let scrollTimeout: ReturnType<typeof setTimeout>;
       const heroSection = document.getElementById('section1');
       if (heroSection) {
         const heroBottom = heroSection.getBoundingClientRect().bottom;
-        const shouldShow = heroBottom > 800;
+        const shouldShow = heroBottom > 600;
         
         setIsScrolling(true);
         setShowIcons(shouldShow);
@@ -1436,7 +1436,7 @@ const toggleFAQ = (index: number) => {
       placeholder="+216 XX XXX XXX" 
        pattern="[0-9+-\s()]*"
       inputMode="numeric"
-      maxLength="8"
+      maxLength={8}
       value={formData.phone}
       onChange={handleInputChange}
             className={!validation && !formData.phone ? 'error' : ''}
