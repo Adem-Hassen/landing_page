@@ -564,7 +564,7 @@ const toggleFAQ = (index: number) => {
 
         {/* ===== VIDEO PLAYER SECTION ===== */}
         <div className="video-section">
-          <VideoPlayer videoUrl="https://www.youtube.com/watch?v=WOZGZK7K-Jo" />
+          <VideoPlayer videoUrl="https://www.youtube.com/watch?v=Kl-I7sUcAOY" />
         </div>
 
         {/* ===== CTA SECTION ===== */}
