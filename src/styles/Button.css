@@ -1,0 +1,194 @@
+/* Base Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 10px;
+    font-weight: 600; /* Increased weight for better visibility */
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn:focus-visible {
+    outline: 2px solid #1E4ED8;
+    outline-offset: 2px;
+  }
+  
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  /* Size Variants */
+  .btn-default {
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-sm {
+    height: 2.25rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .btn-lg {
+    height: 2.75rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .btn-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0.5rem;
+  }
+  
+  /* Variant Styles with Glowing Effects */
+  .btn-default {
+    background: linear-gradient(135deg, #1E4ED8 0%, #3B82F6 100%); /* Gradient for more depth */
+    color: #ffffff;
+    box-shadow: 
+      0 4px 15px rgba(30, 78, 216, 0.4),
+      0 0 20px rgba(59, 130, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2); /* Inner glow */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .btn-default::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #3B82F6 0%, #1E4ED8 100%);
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .btn-default:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 25px rgba(30, 78, 216, 0.6),
+      0 0 30px rgba(59, 130, 246, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #2563eb 0%, #1E4ED8 100%);
+  }
+  
+  .btn-default:hover::before {
+    opacity: 1;
+  }
+  
+  .btn-default:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 
+      0 2px 10px rgba(30, 78, 216, 0.4),
+      0 0 15px rgba(59, 130, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Pulsing glow animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 
+        0 4px 15px rgba(30, 78, 216, 0.4),
+        0 0 20px rgba(59, 130, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      box-shadow: 
+        0 4px 20px rgba(30, 78, 216, 0.6),
+        0 0 30px rgba(59, 130, 246, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  /* Add this class for continuous pulsing glow */
+  .btn-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .btn-secondary {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #1E4ED8;
+    box-shadow: 0 0 15px rgba(30, 78, 216, 0.3);
+  }
+  
+  .btn-secondary:hover:not(:disabled) {
+    background-color: #1E4ED8;
+    border-color: #1e40af;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(30, 78, 216, 0.5);
+    transform: translateY(-1px);
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #1E4ED8;
+    box-shadow: 0 0 10px rgba(30, 78, 216, 0.2);
+  }
+  
+  .btn-outline:hover:not(:disabled) {
+    background-color: #1E4ED8;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(30, 78, 216, 0.4);
+    transform: translateY(-1px);
+  }
+  
+  .btn-ghost {
+    background-color: transparent;
+    color: #e2e8f0;
+    border: 1px solid transparent;
+  }
+  
+  .btn-ghost:hover:not(:disabled) {
+    background-color: rgba(30, 78, 216, 0.1);
+    color: #1E4ED8;
+  }
+  
+  .btn-destructive {
+    background-color: #dc2626;
+    color: white;
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
+  }
+  
+  .btn-destructive:hover:not(:disabled) {
+    background-color: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+  }
+  
+  /* Ripple Effect */
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+  }
+  
+  .btn:active::after {
+    width: 100%;
+    height: 100%;
+    transition: 0s;
+  }

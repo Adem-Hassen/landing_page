@@ -1,0 +1,289 @@
+/* ===== HERO SECTION STYLES ===== */
+/* Shared landing section base */
+.landing-section {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #cbd5e1; /* Lighter gray instead of white */
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0.5rem auto 0 auto; /* Reduced top margin */
+  direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif  !important;
+  text-align: center;
+  
+  /* Subtle gradient for distinction */
+  background: linear-gradient(135deg, 
+    #cbd5e1 0%, 
+    #94a3b8 50%, 
+    #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: subtleGlow 4s ease-in-out infinite;
+  
+  /* Different animation style */
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.3s forwards, subtleGlow 4s ease-in-out infinite 1.3s;
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: brightness(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin: 0.3rem auto 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin: 0.2rem auto 0 auto;
+  }
+}
+
+/* Update hero-section to accommodate second title */
+.hero-section {
+  min-height: 70vh; /* Adjusted for additional title */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  gap: 0.5rem; /* Reduced gap */
+  padding: 0 20px;
+  padding-top: 2rem;
+}
+.cta-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 20px;
+    top: -150px;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out 0.5s both;
+  }
+  
+  /* Responsive design for CTA section */
+  @media (max-width: 768px) {
+    .cta-section {
+      padding: 1.5rem 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .cta-section {
+      padding: 1rem 10px;
+    }
+  }
+.cta-section2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 20px 2rem 20px; /* Reduced top padding from 2rem to 1rem */
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out 0.5s both;
+  margin-top: -7rem; /* Added negative margin to pull it closer */
+}
+
+/* Responsive design for CTA section */
+@media (max-width: 768px) {
+  .cta-section2 {
+    padding: 0.75rem 15px 1.5rem 15px; /* Reduced top padding on mobile */
+    margin-top: -1.5rem; /* Smaller negative margin on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-section2 {
+    padding: 0.5rem 10px 1rem 10px; /* Reduced top padding on small mobile */
+    margin-top: -1rem; /* Smaller negative margin on small mobile */
+  }
+}
+  
+.title1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.3;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: keep-all;
+    direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, 
+    #f8fafc 0%, 
+    #f1f5f9 25%, 
+    #e2e8f0 50%, 
+    #cbd5e1 75%, 
+    #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300% 300%;
+    animation: neonGlow 2.5s ease-in-out infinite;
+    filter: brightness(1.3);
+}
+
+@keyframes neonGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero-divider {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+    animation: dividerPulse 2s ease-in-out infinite;
+    margin: 0.5rem 0; /* Reduced margin */
+}
+
+@keyframes dividerPulse {
+    0%, 100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleX(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* For better Arabic text rendering */
+.title2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+    margin-bottom: 1rem; 
+}
+
+.video-section {
+    padding: 0 20px 2rem 20px; /* Reduced top padding, kept bottom padding */
+    position: relative;
+    z-index: 2;
+    margin-top: -12rem; /* Negative margin to pull video closer */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hero-section {
+        gap: 0.75rem; /* Reduced from 1.5rem */
+        padding: 0 15px;
+        padding-top: 1.5rem; /* Reduced top padding */
+        min-height: 50vh; /* Further reduced on mobile */
+    }
+    
+    .title1 {
+        font-size: 2rem;
+        -webkit-line-clamp: 3; /* Allow 3 lines on mobile if needed */
+    }
+    
+    .title2 {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem; /* Reduced on mobile */
+    }
+    
+    .hero-divider {
+        width: 80px;
+        margin: 0.25rem 0; /* Reduced on mobile */
+    }
+
+    .video-section {
+        padding: 0 15px 1.5rem 15px; /* Reduced on mobile */
+        margin-top: -0.5rem; /* Less negative margin on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        gap: 0.5rem; /* Further reduced on small mobile */
+        padding-top: 1rem;
+        min-height: 40vh;
+    }
+    
+    .title1 {
+        font-size: 1.75rem;
+    }
+    
+    .title2 {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 0.25rem;
+    }
+    
+    .hero-divider {
+        width: 60px;
+        height: 3px;
+        margin: 0.2rem 0;
+    }
+
+    .video-section {
+        padding: 0 10px 1rem 10px;
+        margin-top: -0.25rem;
+    }
+}
+
+/* Ensure content stays above icons */
+.app-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section,
+.video-section,
+.cta-section {
+  position: relative;
+  z-index: 3;
+}

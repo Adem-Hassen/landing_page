@@ -1,0 +1,447 @@
+/* ===== COURSE PARTS SECTION STYLES ===== */
+.course-parts-section {
+  padding: 50px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.course-parts-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.course-parts-main-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1.3;
+  max-width: 900px;
+  margin: 0 auto 4rem auto;
+  direction: rtl;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, 
+    #f8fafc 0%, 
+    #f1f5f9 25%, 
+    #e2e8f0 50%, 
+    #cbd5e1 75%, 
+    #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% 300%;
+  animation: neonGlow 2.5s ease-in-out infinite;
+}
+
+/* Stacked Cards Container - MUCH LARGER */
+.stacked-cards-container {
+  position: relative;
+  height: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto;
+}
+
+.stacked-cards {
+  position: relative;
+  width: 900px;
+  height: 850px;
+  margin: 0 auto;
+}
+
+/* Stacked Card Styles */
+.stacked-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 35, 80, 0.95) 0%,
+    rgba(15, 25, 60, 0.9) 50%,
+    rgba(10, 20, 50, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(30, 78, 216, 0.4);
+  border-radius: 25px;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(30, 78, 216, 0.3);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-arrow {
+  background: rgba(30, 78, 216, 0.3);
+  border: 2px solid rgba(30, 78, 216, 0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 20;
+  flex-shrink: 0;
+}
+
+.nav-arrow.prev-arrow {
+  position: absolute;
+  top: 40%;
+  left: 11rem;
+}
+
+.nav-arrow.next-arrow {
+  position: absolute;
+  top: 40%;
+  right: 9rem;
+}
+
+.nav-arrow:hover {
+  background: rgba(30, 78, 216, 0.5);
+  border-color: rgba(30, 78, 216, 0.8);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.nav-arrow:active {
+  transform: scale(0.95);
+}
+
+/* Active Card (Front) */
+.stacked-card.active {
+  transform: translateX(0) scale(1);
+  z-index: 10;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(30, 78, 216, 0.5);
+}
+
+.stacked-card.active:hover {
+  transform: translateX(0) scale(1.03);
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.8),
+    0 0 50px rgba(30, 78, 216, 0.6);
+}
+
+/* Next Card (Slightly behind) */
+.stacked-card.next {
+  transform: translateX(60px) translateY(30px) scale(0.9);
+  opacity: 0.8;
+  z-index: 9;
+  filter: blur(1px);
+}
+
+/* Behind Cards */
+.stacked-card.behind {
+  transform: translateX(120px) translateY(60px) scale(0.8);
+  opacity: 0.6;
+  z-index: 8;
+  filter: blur(2px);
+}
+
+/* Hidden Cards */
+.stacked-card:not(.active):not(.next):not(.behind) {
+  transform: translateX(180px) translateY(90px) scale(0.7);
+  opacity: 0.3;
+  z-index: 7;
+  filter: blur(3px);
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+  position: relative;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+}
+
+.placeholder-content {
+  text-align: center;
+  color: white;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.stacked-card.active:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* Image Overlay */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(15, 25, 60, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Part Number */
+.part-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(30, 78, 216, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+  z-index: 11;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Indicators */
+.stacked-cards-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.stacked-cards-indicators .indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(30, 78, 216, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stacked-cards-indicators .indicator.active {
+  background: #3b82f6;
+  transform: scale(1.3);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+}
+
+.stacked-cards-indicators .indicator:hover {
+  background: rgba(30, 78, 216, 0.6);
+  transform: scale(1.2);
+}
+
+.card-overlay {
+  display: none;
+}
+
+/* Responsive Design for Larger Cards */
+@media (max-width: 1024px) {
+  .stacked-cards {
+    width: 500px;
+    height: 375px;
+  }
+  
+  .stacked-cards-container {
+    height: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-parts-section {
+    padding: 80px 15px;
+  }
+  
+  .course-parts-main-title {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .stacked-cards-container {
+    height: 550px;
+  }
+  
+  .stacked-cards {
+    width: 450px;
+    height: 337px;
+  }
+  
+  .placeholder-content p {
+    font-size: 1.1rem;
+  }
+  
+  .placeholder-content svg {
+    font-size: 3.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-parts-section {
+    padding: 60px 10px;
+  }
+  
+  .course-parts-main-title {
+    font-size: 1.8rem;
+  }
+  
+  .stacked-cards-container {
+    height: 500px;
+  }
+  
+  .stacked-cards {
+    width: 350px;
+    height: 262px;
+  }
+  
+  .part-number {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+  
+  .placeholder-content p {
+    font-size: 1rem;
+  }
+  
+  .placeholder-content svg {
+    font-size: 3rem !important;
+  }
+  
+  .stacked-cards-indicators .indicator {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Course Parts CTA Styles */
+.course-parts-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.btn-extra-large {
+  font-size: 1.3rem !important;
+  padding: 1.5rem 2rem !important;
+  min-height: 70px;
+  border-width: 3px !important;
+  border-radius: 16px !important;
+}
+
+.btn-extra-large.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-extra-large.btn-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(30, 78, 216, 0.5),
+    0 0 40px rgba(30, 78, 216, 0.3) !important;
+}
+
+/* Responsive design for CTA */
+@media (max-width: 1024px) {
+  .btn-extra-large {
+    font-size: 1.6rem !important;
+    padding: 1.3rem 3.5rem !important;
+    min-height: 65px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-parts-cta {
+    margin-top: 3rem;
+    padding: 2.5rem 0;
+  }
+  
+  .btn-extra-large {
+    font-size: 1.4rem !important;
+    padding: 1.2rem 3rem !important;
+    min-height: 60px !important;
+    border-radius: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-parts-cta {
+    margin-top: 2.5rem;
+    padding: 2rem 0;
+  }
+  
+  .btn-extra-large {
+    font-size: 1.2rem !important;
+    padding: 1rem 2.5rem !important;
+    min-height: 55px !important;
+    border-radius: 12px !important;
+  }
+  
+  .btn-extra-large.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 30px rgba(30, 78, 216, 0.4),
+      0 0 35px rgba(30, 78, 216, 0.25) !important;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseLarge {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.btn-extra-large {
+  animation: pulseLarge 3s ease-in-out infinite;
+}
+
+.btn-extra-large:hover {
+  animation: none;
+}
