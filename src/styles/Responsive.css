@@ -318,12 +318,6 @@ html, body {
     min-height: 180px !important;
   }
 
-  /* Target Audience */
-  .icon-points-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
   /* Flip Cards */
   .flip-cards-container {
     grid-template-columns: 1fr !important;
@@ -433,12 +427,6 @@ html, body {
     right: 2px !important;
   }
 
-  /* Target Audience */
-  .icon-points-grid {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
   /* Why Learn */
   .second-row {
     grid-template-columns: 1fr;
@@ -496,22 +484,8 @@ html, body {
 
   /* Footer */
   .footer-container {
-    flex-direction: column !important;
-    gap: 1.5rem !important;
     text-align: center !important;
     padding: 0 1rem !important;
-  }
-
-  .footer-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 1.25rem !important;
-    order: 1 !important;
-  }
-
-  .footer-copyright {
-    order: 2 !important;
   }
 }
 
