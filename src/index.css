@@ -4,9 +4,43 @@
 
 /* Global styles */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-heading: "Alexandria", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --font-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+
+  --text-hero: clamp(2rem, 1.35rem + 2.8vw, 3.5rem);
+  --text-h2: clamp(1.625rem, 1.25rem + 1.6vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --text-h4: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-body: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --text-small: 0.875rem;
+  --text-btn: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-price: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
+
+  --weight-hero: 800;
+  --weight-h2: 700;
+  --weight-h3: 700;
+  --weight-h4: 600;
+  --weight-lead: 400;
+  --weight-body: 400;
+  --weight-small: 500;
+  --weight-btn: 600;
+  --weight-price: 800;
+
+  --leading-hero: 1.3;
+  --leading-h2: 1.35;
+  --leading-h3: 1.45;
+  --leading-h4: 1.5;
+  --leading-lead: 1.85;
+  --leading-body: 1.8;
+  --leading-small: 1.6;
+  --leading-btn: 1.4;
+  --leading-price: 1.1;
+
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: var(--weight-body);
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -24,10 +58,248 @@ body {
   margin: 0;
   min-height: 100vh;
   background: #000000; /* Changed to black */
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
 }
 
 #root {
   width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-hero);
+  line-height: var(--leading-hero);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--leading-h2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: var(--weight-h3);
+  line-height: var(--leading-h3);
+}
+
+h4 {
+  font-size: var(--text-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--leading-h4);
+}
+
+p {
+  max-width: 62ch;
+  font-size: var(--text-body);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+  font-family: var(--font-body);
+}
+
+button,
+.btn,
+.nav-link,
+.login-link,
+.flip-btn,
+.email-btn,
+.back-btn,
+.faq-question,
+.faq-ask-button,
+.gallery-nav-btn,
+.nav-arrow {
+  font-size: var(--text-btn);
+  font-weight: var(--weight-btn);
+  line-height: var(--leading-btn);
+  letter-spacing: 0;
+}
+
+input,
+textarea,
+select {
+  font-size: max(1rem, var(--text-body));
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+}
+
+.title2,
+.problems-description,
+.why-learn-subtitle,
+.teachers-showcase-subtitle,
+.course-content-subtitle,
+.faq-subtitle {
+  max-width: 62ch;
+  font-family: var(--font-body);
+  font-size: var(--text-lead);
+  font-weight: var(--weight-lead);
+  line-height: var(--leading-lead);
+}
+
+.question-text,
+.module-card-title,
+.step-card-title,
+.faq-ask-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--leading-h4);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--leading-h4);
+  letter-spacing: 0;
+}
+
+.solutions-badge,
+.journey-badge,
+.card-step-badge,
+.placeholder-label-text,
+.placeholder-badge,
+.course-badge,
+.module-number-pill,
+.module-featured-badge,
+.placeholder-tag,
+.placeholder-subtag,
+.module-toggle-hint,
+.gallery-active-indicator,
+.gallery-drag-hint,
+.audience-panel-tag,
+.faq-number,
+.quest-marker,
+.quest-step,
+.card-step-number-tag,
+.faq-ask-text,
+.faq-composer-hint,
+.offer-badge,
+.form-group label,
+.footer-copyright,
+.footer-copyright p,
+.nav-link,
+.login-link {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-small);
+  line-height: var(--leading-small);
+  letter-spacing: 0;
+}
+
+.part-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--leading-h4);
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate;
+}
+
+.audience-panel-number,
+.quest-ghost,
+.stat-number {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-price);
+  line-height: var(--leading-price);
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate;
+}
+
+.price {
+  font-family: var(--font-heading);
+  font-size: var(--text-price);
+  font-weight: var(--weight-price);
+  line-height: var(--leading-price);
+}
+
+.currency {
+  font-family: var(--font-body);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-h3);
+  line-height: var(--leading-h3);
+}
+
+.details-text,
+.feature > span:last-child,
+.step-card-intro,
+.step-bullet-item,
+.step-card-desc,
+.module-card-description,
+.answer-text,
+.faq-ask-input {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+.btn,
+.faq-question,
+.faq-ask-button,
+.gallery-nav-btn,
+.nav-arrow,
+.back-btn,
+.control-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.stacked-cards-indicators .indicator {
+  position: relative;
+}
+
+.stacked-cards-indicators .indicator::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+}
+
+[dir="rtl"] {
+  letter-spacing: 0;
+  font-style: normal;
+  text-transform: none;
+}
+
+[dir="rtl"] :is(h1, h2, h3, h4, p, li, button, label, input, textarea) {
+  letter-spacing: 0;
+  font-style: normal;
+  text-transform: none;
+}
+
+.price,
+.currency,
+.faq-number,
+.quest-marker,
+.quest-step,
+.quest-ghost,
+.audience-number,
+.timeline-number,
+.gallery-active-indicator,
+.module-number-pill {
+  font-variant-numeric: tabular-nums;
+  unicode-bidi: isolate;
 }
 
 /* Global Gradient Background Effect */

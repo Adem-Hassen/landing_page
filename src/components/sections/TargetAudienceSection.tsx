@@ -10,7 +10,7 @@ const audiencePoints = [
     tag: 'دخل جديد',
     sticker: 'دخل من الدار',
     accent: '#3b82f6',
-    title: 'تحب تغيّر حياتك وتبني مصدر دخل حقيقي',
+    title: 'تحب تبدى من 0 أو جربت و فشلت.',
     text: 'ما عادش تستنى الشهرية وحدها. نعلموك كيفاش تبني متجر يخدم ليك حتى وانت راقد.',
   },
   {
@@ -18,8 +18,8 @@ const audiencePoints = [
     image: '/audience/audience-business.jpg',
     tag: 'صاحب بزنس',
     sticker: 'مبيعات أكثر',
-    accent: '#22d3ee',
-    title: 'عندك بزنس صغير وتحب تكبر المبيعات',
+    accent: '#3b82f6',
+    title:'عندك مشروع أما تحب تزيد في المبيعات',
     text: 'حوّل البزنس متاعك لمتجر أونلاين يوصل لكلاينات جدد كل نهار.',
   },
   {
@@ -27,8 +27,8 @@ const audiencePoints = [
     image: '/audience/audience-beginner.jpg',
     tag: 'مبتدئ',
     sticker: 'من الصفر',
-    accent: '#818cf8',
-    title: 'نت شاب حاب تبدأ من الصفر وتتعلم التجارة الإلكترونية',
+    accent: '#3b82f6',
+    title: 'تحب تتعلم مهارة معينة وتبيعها كفريلنسر',
     text: 'ما تحتاج حتى خبرة. نمشيو معاك خطوة بخطوة من أول فكرة لأول بيعة.',
   },
 ];
@@ -70,7 +70,7 @@ export default function TargetAudienceSection() {
     {/* Main Title */}
     <div className="text-center mb-12">
       <h2 className="target-audience-main-title">
-        كورس "Ecom Mastery 1.0" هو الحل ليك ، إذا كنت
+        كورس <bdi>"Ecom Mastery 1.0"</bdi> هو الحل ليك ، إذا كنت
       </h2>
     </div>
 
@@ -88,12 +88,9 @@ export default function TargetAudienceSection() {
           <div className="audience-panel-spotlight"></div>
 
           <span className="audience-panel-number">0{index + 1}</span>
-          <span className="audience-panel-sticker">{point.sticker}</span>
 
           <div className="audience-panel-content">
-            <span className="audience-panel-tag">{point.tag}</span>
             <h3 className="audience-panel-title">{point.title}</h3>
-            <p className="audience-panel-text">{point.text}</p>
           </div>
         </article>
       ))}
@@ -104,9 +101,9 @@ export default function TargetAudienceSection() {
         variant="outline"
         size="lg"
         className="btn-glow btn-extra-large"
-        onClick={() => (window.location.href = "#section9")}
+        onClick={() => (window.location.href = "#join-us")}
       >
- get it now      </Button>
+ Join us now      </Button>
     </div>
   </div>
 </section>

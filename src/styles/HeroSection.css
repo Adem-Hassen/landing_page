@@ -10,14 +10,10 @@
     z-index: 2;
 }
 .title {
-  font-size: 2.2rem;
-  font-weight: 700;
   color: #cbd5e1; /* Lighter gray instead of white */
-  line-height: 1.4;
   max-width: 900px;
   margin: 0.5rem auto 0 auto; /* Reduced top margin */
   direction: rtl;
-  font-family: system-ui, -apple-system, sans-serif  !important;
   text-align: center;
   
   /* Subtle gradient for distinction */
@@ -57,21 +53,7 @@
     transform: translateY(0);
   }
 }
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.8rem;
-    line-height: 1.3;
-    margin: 0.3rem auto 0 auto;
-  }
-}
 
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.5rem;
-    line-height: 1.3;
-    margin: 0.2rem auto 0 auto;
-  }
-}
 
 /* Update hero-section to accommodate second title */
 .hero-section {
@@ -95,73 +77,64 @@
     top: -150px;
     position: relative;
     z-index: 2;
-    animation: fadeInUp 1s ease-out 0.5s both;
   }
+
+/* The video border is the hero's only continuous animation. */
+.cta-section .btn-glow {
+    animation: none;
+    box-shadow:
+      0 4px 15px rgba(30, 78, 216, 0.4),
+      0 0 20px rgba(59, 130, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
   
   /* Responsive design for CTA section */
-  @media (max-width: 768px) {
-    .cta-section {
-      padding: 1.5rem 15px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .cta-section {
-      padding: 1rem 10px;
-    }
-  }
-.cta-section2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 20px 2rem 20px; /* Reduced top padding from 2rem to 1rem */
-  position: relative;
-  z-index: 2;
-  animation: fadeInUp 1s ease-out 0.5s both;
-  margin-top: -7rem; /* Added negative margin to pull it closer */
-}
+
+
 
 /* Responsive design for CTA section */
-@media (max-width: 768px) {
-  .cta-section2 {
-    padding: 0.75rem 15px 1.5rem 15px; /* Reduced top padding on mobile */
-    margin-top: -1.5rem; /* Smaller negative margin on mobile */
-  }
-}
+
 
 @media (max-width: 480px) {
-  .cta-section2 {
-    padding: 0.5rem 10px 1rem 10px; /* Reduced top padding on small mobile */
-    margin-top: -1rem; /* Smaller negative margin on small mobile */
-  }
+
+  .title1 {
+    color: #e2e8f0;
+    font-size: 1.5rem;
+   
+}
+
 }
   
 .title1 {
-    font-size: 3.5rem;
-    font-weight: 700;
     color: #e2e8f0;
-    line-height: 1.3;
     max-width: 1100px;
+    font-size: 2.5rem;
     margin: 0 auto;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     word-wrap: break-word;
     word-break: keep-all;
     direction: rtl;
-  font-family: system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, 
-    #f8fafc 0%, 
-    #f1f5f9 25%, 
-    #e2e8f0 50%, 
-    #cbd5e1 75%, 
-    #94a3b8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 300% 300%;
-    animation: neonGlow 2.5s ease-in-out infinite;
     filter: brightness(1.3);
+}
+
+/* Gradient lives on each word: background-clip:text on the h1 does not reach
+   children that have their own transform/filter layers. */
+.title1 .hero-word {
+    display: inline-block;
+    padding: 0.12em 0;
+    margin: -0.12em 0;
+    background: linear-gradient(180deg,
+    #f8fafc 0%,
+    #f1f5f9 35%,
+    #e2e8f0 65%,
+    #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title1 .hero-word::selection {
+    -webkit-text-fill-color: #ffffff;
+    background: rgba(30, 78, 216, 0.6);
 }
 
 @keyframes neonGlow {
@@ -195,14 +168,10 @@
 
 /* For better Arabic text rendering */
 .title2 {
-    font-size: 1.5rem;
-    font-weight: 500;
     color: #cbd5e1;
-    line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
     direction: rtl;
-  font-family: system-ui, -apple-system, sans-serif;
     text-align: center;
     animation: fadeInUp 1s ease-out;
     margin-bottom: 1rem; 
@@ -220,18 +189,11 @@
     .hero-section {
         gap: 0.75rem; /* Reduced from 1.5rem */
         padding: 0 15px;
-        padding-top: 1.5rem; /* Reduced top padding */
+        padding-top: 5.5rem;
         min-height: 50vh; /* Further reduced on mobile */
     }
     
-    .title1 {
-        font-size: 2rem;
-        -webkit-line-clamp: 3; /* Allow 3 lines on mobile if needed */
-    }
-    
     .title2 {
-        font-size: 1.25rem;
-        line-height: 1.5;
         margin-bottom: 0.5rem; /* Reduced on mobile */
     }
     
@@ -249,17 +211,15 @@
 @media (max-width: 480px) {
     .hero-section {
         gap: 0.5rem; /* Further reduced on small mobile */
-        padding-top: 1rem;
+        padding-top: 5.25rem;
         min-height: 40vh;
     }
     
     .title1 {
-        font-size: 1.75rem;
+        font-size: 1.3rem;
     }
     
     .title2 {
-        font-size: 1.1rem;
-        line-height: 1.4;
         margin-bottom: 0.25rem;
     }
     
@@ -275,15 +235,124 @@
     }
 }
 
-/* Ensure content stays above icons */
-.app-content {
-  position: relative;
-  z-index: 2;
+/* ===== VIDEO FRAME: glow + border beam ===== */
+@property --beam-head {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
 }
 
-.hero-section,
-.video-section,
-.cta-section {
-  position: relative;
-  z-index: 3;
+.video-frame {
+    --video-radius: 12px;
+    position: relative;
+    isolation: isolate;
+    max-width: 1200px;
+    margin: 3rem auto;
+    border-radius: var(--video-radius);
+}
+
+.video-frame > .video-player-container.large-video {
+    margin: 0;
+    max-width: none;
+    border-radius: var(--video-radius);
+}
+
+.video-frame::before {
+    content: '';
+    position: absolute;
+    inset: 6% 4%;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(closest-side, rgba(30, 78, 216, 0.55), rgba(30, 78, 216, 0));
+    filter: blur(48px);
+    transform: scale(1.12);
+    pointer-events: none;
+}
+
+.video-beam {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    animation: beamTravel 7s linear infinite;
+}
+
+.video-beam rect {
+    x: 0.75px;
+    y: 0.75px;
+    width: calc(100% - 1.5px);
+    height: calc(100% - 1.5px);
+    rx: calc(var(--video-radius) - 0.75px);
+    fill: none;
+}
+
+.video-beam__base {
+    stroke: rgba(148, 180, 255, 0.14);
+    stroke-width: 1px;
+}
+
+.video-beam__seg {
+    stroke-width: 1.5px;
+    stroke-linecap: round;
+    stroke-dasharray: var(--seg) calc(100 - var(--seg));
+    /* Every segment's leading end sits at --beam-head. */
+    stroke-dashoffset: calc(var(--seg) - var(--beam-head));
+}
+
+.video-beam__seg--tail { stroke: #bfdbfe; opacity: 0.28; }
+.video-beam__seg--mid  { stroke: #93b4ff; opacity: 0.5; }
+.video-beam__seg--body { stroke: #4f7cf0; opacity: 0.85; }
+.video-beam__seg--head {
+    stroke: #1E4ED8;
+    stroke-width: 2px;
+    filter: drop-shadow(0 0 4px #1E4ED8) drop-shadow(0 0 2px #6b93ff);
+}
+
+@keyframes beamTravel {
+    from { --beam-head: 0; }
+    to   { --beam-head: 100; }
+}
+
+.video-frame.is-offscreen .video-beam {
+    animation-play-state: paused;
+}
+
+@media (max-width: 1024px) {
+    .video-frame {
+        margin: 1.5rem auto;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-frame {
+        --video-radius: 10px;
+        margin: 1rem auto;
+        max-width: 100%;
+    }
+
+    .video-frame::before {
+        inset: 10% 8%;
+        filter: blur(24px);
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-frame {
+        --video-radius: 8px;
+        margin: 0.75rem auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .video-beam {
+        animation: none;
+    }
+
+    .video-beam__seg {
+        display: none;
+    }
 }

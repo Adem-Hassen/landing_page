@@ -32,7 +32,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
+      className={cn("font-heading text-[length:var(--text-h4)] font-semibold leading-[var(--leading-h4)] tracking-normal", className)}
       {...props}
     />
   )
@@ -42,7 +42,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("font-body text-[length:var(--text-body)] font-normal leading-[var(--leading-body)] tracking-normal text-muted-foreground", className)}
       {...props}
     />
   )

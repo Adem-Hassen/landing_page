@@ -57,29 +57,7 @@ export default function Navbar() {
       </nav>
       
       {/* Mobile menu */}
-      <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-        <div className="mobile-menu-overlay" onClick={() => setMobileMenuOpen(false)}></div>
-        <div className="mobile-menu-panel">
-          <div className="mobile-menu-header">
-            <a 
-              href="#home" 
-              onClick={(e) => handleNavClick(e, '#home')}
-              style={{ textDecoration: 'none', color: 'inherit' }}
-            >
-              E-com Academy
-            </a>
-            <button
-              type="button"
-              className="close-button"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <div className="close-icon">×</div>
-            </button>
-          </div>
-    
-        </div>
-      </div>
+  
     </header>
   );
 }

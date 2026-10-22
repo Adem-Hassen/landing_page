@@ -17,14 +17,10 @@
 }
 
 .course-parts-main-title {
-  font-size: 2.8rem;
-  font-weight: 700;
   color: #e2e8f0;
-  line-height: 1.3;
   max-width: 900px;
   margin: 0 auto 4rem auto;
   direction: rtl;
-  font-family: system-ui, -apple-system, sans-serif;
   background: linear-gradient(135deg, 
     #f8fafc 0%, 
     #f1f5f9 25%, 
@@ -87,7 +83,6 @@
   height: 50px;
   border-radius: 50%;
   font-size: 1.5rem;
-  font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -222,7 +217,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
   font-size: 1.1rem;
   color: #ffffff;
   z-index: 11;
@@ -280,7 +274,6 @@
   }
   
   .course-parts-main-title {
-    font-size: 2.2rem;
     margin-bottom: 3rem;
   }
   
@@ -294,7 +287,6 @@
   }
   
   .placeholder-content p {
-    font-size: 1.1rem;
   }
   
   .placeholder-content svg {
@@ -308,7 +300,6 @@
   }
   
   .course-parts-main-title {
-    font-size: 1.8rem;
   }
   
   .stacked-cards-container {
@@ -329,7 +320,6 @@
   }
   
   .placeholder-content p {
-    font-size: 1rem;
   }
   
   .placeholder-content svg {
@@ -354,8 +344,8 @@
 }
 
 .btn-extra-large {
-  font-size: 1.3rem !important;
   padding: 1.5rem 2rem !important;
+  height: auto !important;
   min-height: 70px;
   border-width: 3px !important;
   border-radius: 16px !important;
@@ -377,7 +367,6 @@
 /* Responsive design for CTA */
 @media (max-width: 1024px) {
   .btn-extra-large {
-    font-size: 1.6rem !important;
     padding: 1.3rem 3.5rem !important;
     min-height: 65px !important;
   }
@@ -390,7 +379,6 @@
   }
   
   .btn-extra-large {
-    font-size: 1.4rem !important;
     padding: 1.2rem 3rem !important;
     min-height: 60px !important;
     border-radius: 14px !important;
@@ -404,7 +392,6 @@
   }
   
   .btn-extra-large {
-    font-size: 1.2rem !important;
     padding: 1rem 2.5rem !important;
     min-height: 55px !important;
     border-radius: 12px !important;

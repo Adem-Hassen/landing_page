@@ -38,21 +38,15 @@
   border: 1px solid rgba(59, 130, 246, 0.35);
   border-radius: 9999px;
   color: #60a5fa;
-  font-size: 0.92rem;
-  font-weight: 600;
   margin-bottom: 1.25rem;
   box-shadow: 0 0 25px rgba(30, 78, 216, 0.2);
   backdrop-filter: blur(8px);
 }
 
 .solutions-main-title {
-  font-size: 2.3rem;
-  font-weight: 800;
   color: #f1f5f9;
-  line-height: 1.45;
   margin: 0 auto 1.25rem auto;
   text-align: center;
-  font-family: system-ui, -apple-system, sans-serif;
   background: linear-gradient(135deg, 
     #ffffff 0%, 
     #f8fafc 35%, 
@@ -64,10 +58,7 @@
 }
 
 .teachers-showcase-subtitle {
-  font-size: 1.12rem;
-  font-weight: 500;
   color: #94a3b8;
-  line-height: 1.65;
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
@@ -205,11 +196,8 @@
 }
 
 .teacher-name {
-  font-size: 1.55rem;
-  font-weight: 800;
   color: #ffffff;
   margin: 0;
-  line-height: 1.25;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
   transition: color 0.3s ease;
 }
@@ -219,11 +207,8 @@
 }
 
 .teacher-role {
-  font-size: 0.9rem;
   color: #93c5fd;
-  font-weight: 500;
   margin: 0;
-  line-height: 1.45;
   white-space: normal;
 }
 
@@ -282,9 +267,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
-  font-size: 0.9rem;
   color: #e2e8f0;
-  line-height: 1.55;
 }
 
 .details-bullet {
@@ -370,15 +353,12 @@
   }
 
   .teacher-name {
-    font-size: 1.45rem;
   }
 
   .teacher-role {
-    font-size: 0.86rem;
   }
 
   .details-item {
-    font-size: 0.84rem;
   }
 }
 
@@ -393,11 +373,9 @@
   }
 
   .solutions-main-title {
-    font-size: 1.65rem;
   }
 
   .teachers-showcase-subtitle {
-    font-size: 0.98rem;
   }
 
   /* Vertical Stacked Cards on Mobile */
@@ -410,11 +388,12 @@
     margin: 0 auto 2.5rem auto;
   }
 
+  /* Full-portrait cards; details slide up over the image on tap */
   .accordion-strip {
     flex: none !important;
     width: 100%;
     height: auto;
-    min-height: 110px;
+    aspect-ratio: 4 / 5;
     border-radius: 20px;
   }
 
@@ -422,38 +401,55 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(59, 130, 246, 0.25);
   }
 
-  /* Image height expands when card is active */
-  .strip-image-container {
-    position: relative;
-    height: 110px;
-    transition: height 0.4s ease;
+  .strip-image {
+    object-position: center 15%;
   }
 
-  .accordion-strip.is-active .strip-image-container {
-    height: 200px;
+  .accordion-strip:not(.is-active) .strip-image {
+    filter: none;
+  }
+
+  .accordion-strip.is-active .strip-image {
+    transform: scale(1.04);
+    filter: brightness(0.75);
+  }
+
+  .strip-gradient-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(8, 13, 26, 0.95) 0%,
+      rgba(8, 13, 26, 0.7) 18%,
+      rgba(8, 13, 26, 0) 42%
+    );
+  }
+
+  .accordion-strip.is-active .strip-gradient-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(8, 13, 26, 0.97) 0%,
+      rgba(8, 13, 26, 0.9) 45%,
+      rgba(8, 13, 26, 0.35) 80%,
+      rgba(8, 13, 26, 0.15) 100%
+    );
   }
 
   .strip-content {
-    position: relative;
-    inset: auto;
     padding: 1.15rem 1.25rem;
-    background: #090e1a;
   }
 
   /* Strip Header with toggle chevron */
   .strip-header {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
+    gap: 0.75rem;
     width: 100%;
   }
 
   .teacher-name {
-    font-size: 1.3rem;
   }
 
   .teacher-role {
-    font-size: 0.85rem;
   }
 
   /* Mobile Chevron Toggle */
@@ -464,36 +460,26 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.35);
-    color: #60a5fa;
-    transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(96, 165, 250, 0.45);
+    color: #ffffff;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transform: rotate(180deg);
+    transition: transform 0.35s ease, background 0.35s ease;
     flex-shrink: 0;
   }
 
   .accordion-strip.is-active .mobile-expand-icon {
-    transform: rotate(180deg);
-    background: rgba(59, 130, 246, 0.3);
-    color: #ffffff;
-  }
-
-  /* Expanded details on mobile */
-  .strip-expanded-details {
-    max-height: 0;
-    opacity: 0;
-    transform: none;
-    transition: max-height 0.4s ease, opacity 0.35s ease;
+    transform: rotate(0deg);
+    background: rgba(59, 130, 246, 0.35);
   }
 
   .accordion-strip.is-active .strip-expanded-details {
-    max-height: 300px;
-    opacity: 1;
-    margin-top: 0.25rem;
+    max-height: 320px;
   }
 
   .details-item {
-    font-size: 0.84rem;
-    line-height: 1.5;
   }
 }
 
@@ -504,18 +490,14 @@
   }
 
   .solutions-main-title {
-    font-size: 1.35rem;
   }
 
   .teacher-name {
-    font-size: 1.2rem;
   }
 
   .teacher-role {
-    font-size: 0.8rem;
   }
 
   .details-item {
-    font-size: 0.8rem;
   }
 }

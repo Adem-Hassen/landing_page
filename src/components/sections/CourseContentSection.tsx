@@ -177,9 +177,9 @@ export default function CourseContentSection() {
 
             {/* Active Module Indicator */}
             <div className="gallery-active-indicator">
-              <span className="indicator-current">جزء {activeModule.number}</span>
+              <span className="indicator-current">جزء <bdi>{activeModule.number}</bdi></span>
               <span className="indicator-separator">/</span>
-              <span className="indicator-total">20</span>
+              <span className="indicator-total"><bdi>20</bdi></span>
             </div>
 
             <button

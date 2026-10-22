@@ -41,21 +41,15 @@
   border: 1px solid rgba(59, 130, 246, 0.35);
   border-radius: 9999px;
   color: #60a5fa;
-  font-size: 0.92rem;
-  font-weight: 600;
   margin-bottom: 1.25rem;
   box-shadow: 0 0 25px rgba(30, 78, 216, 0.2);
   backdrop-filter: blur(8px);
 }
 
 .course-content-main-title {
-  font-size: 2.3rem;
-  font-weight: 800;
   color: #f1f5f9;
-  line-height: 1.4;
   margin: 0 auto 1.25rem auto;
   text-align: center;
-  font-family: system-ui, -apple-system, sans-serif;
   background: linear-gradient(135deg, 
     #ffffff 0%, 
     #f8fafc 35%, 
@@ -67,14 +61,10 @@
 }
 
 .course-content-subtitle {
-  font-size: 1.15rem;
-  font-weight: 500;
   color: #94a3b8;
-  line-height: 1.7;
   max-width: 720px;
   margin: 0 auto;
   text-align: center;
-  font-family: system-ui, -apple-system, sans-serif;
 }
 
 /* ==========================================================================
@@ -148,8 +138,6 @@
   background: rgba(30, 78, 216, 0.3);
   border: 1.5px solid rgba(96, 165, 250, 0.6);
   color: #93c5fd;
-  font-weight: 800;
-  font-size: 0.82rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,8 +155,6 @@
   color: #ffffff;
   padding: 0.3rem 0.7rem;
   border-radius: 9999px;
-  font-size: 0.72rem;
-  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -287,18 +273,11 @@
 }
 
 .placeholder-tag {
-  font-size: 0.8rem;
-  font-weight: 700;
   color: #cbd5e1;
-  font-family: system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.01em;
 }
 
 .placeholder-subtag {
-  font-size: 0.7rem;
-  font-weight: 600;
   color: #60a5fa;
-  font-family: system-ui, -apple-system, sans-serif;
   background: rgba(30, 78, 216, 0.2);
   padding: 0.1rem 0.5rem;
   border-radius: 9999px;
@@ -333,11 +312,7 @@
 
 .module-card-title {
   color: #ffffff;
-  font-size: 1.12rem;
-  font-weight: 700;
-  line-height: 1.35;
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
   text-align: center;
 }
 
@@ -346,8 +321,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-size: 0.72rem;
-  font-weight: 600;
   color: #60a5fa;
   background: rgba(30, 78, 216, 0.2);
   border: 1px solid rgba(59, 130, 246, 0.35);
@@ -393,14 +366,11 @@
 
 .circular-module-card.is-expanded .module-card-description {
   color: #cbd5e1;
-  font-size: 0.86rem;
-  line-height: 1.65;
   margin: 0;
   max-height: 135px;
   overflow-y: auto;
   text-align: center;
   padding: 0 0.35rem;
-  font-family: system-ui, -apple-system, sans-serif;
   display: block;
 }
 
@@ -482,12 +452,10 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.3rem 0.85rem;
-  font-size: 0.9rem;
 }
 
 .indicator-current {
   color: #60a5fa;
-  font-weight: 800;
 }
 
 .indicator-separator {
@@ -496,12 +464,10 @@
 
 .indicator-total {
   color: #94a3b8;
-  font-weight: 600;
 }
 
 .indicator-title-preview {
   color: #f1f5f9;
-  font-weight: 600;
   margin-right: 0.65rem;
   border-right: 1px solid rgba(59, 130, 246, 0.35);
   padding-right: 0.75rem;
@@ -515,7 +481,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.82rem;
   color: #64748b;
   direction: rtl;
 }
@@ -530,7 +495,6 @@
   }
 
   .course-content-main-title {
-    font-size: 1.9rem;
   }
 
   .circular-module-card.is-expanded {
@@ -545,11 +509,9 @@
   }
 
   .course-content-main-title {
-    font-size: 1.6rem;
   }
 
   .course-content-subtitle {
-    font-size: 0.98rem;
   }
 
   .circular-gallery-stage {
@@ -577,7 +539,6 @@
   }
 
   .circular-module-card.is-expanded .module-card-description {
-    font-size: 0.82rem;
     max-height: 125px;
   }
 }
@@ -592,11 +553,9 @@
   }
 
   .course-content-main-title {
-    font-size: 1.45rem;
   }
 
   .course-content-subtitle {
-    font-size: 0.9rem;
   }
 
   .circular-gallery-stage {
@@ -625,20 +584,15 @@
   }
 
   .placeholder-tag {
-    font-size: 0.74rem;
   }
 
   .placeholder-subtag {
-    font-size: 0.65rem;
   }
 
   .module-card-title {
-    font-size: 1.02rem;
   }
 
   .circular-module-card.is-expanded .module-card-description {
-    font-size: 0.78rem;
-    line-height: 1.55;
     max-height: 110px;
   }
 

@@ -48,7 +48,11 @@ const TEACHERS: Teacher[] = [
 ];
 
 export default function SolutionsSection() {
-  const [activeId, setActiveId] = useState<string>('mohamed-aziz');
+  const [activeId, setActiveId] = useState<string>(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+      ? ''
+      : 'mohamed-aziz'
+  );
 
   const handleTeacherHover = (id: string) => {
     // Only trigger hover on devices that support true pointer hover (desktop)
@@ -75,7 +79,7 @@ export default function SolutionsSection() {
           <h2 className="solutions-main-title">
             هكعلاش حطيت أني و2 خبراء آخرين وقتنا وخبرتنا على ذمتك ،
             <br />
-            في كورس "Ecom Mastery 1.0"
+            في كورس <bdi>"Ecom Mastery 1.0"</bdi>
           </h2>
 
           <p className="teachers-showcase-subtitle">

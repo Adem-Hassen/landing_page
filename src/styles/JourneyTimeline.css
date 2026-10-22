@@ -35,21 +35,15 @@
   border: 1px solid rgba(59, 130, 246, 0.4);
   border-radius: 9999px;
   color: #60a5fa;
-  font-size: 0.92rem;
-  font-weight: 600;
   margin-bottom: 1.25rem;
   box-shadow: 0 0 25px rgba(30, 78, 216, 0.25);
   backdrop-filter: blur(8px);
 }
 
 .journey-main-title {
-  font-size: 2.35rem;
-  font-weight: 800;
   color: #f1f5f9;
-  line-height: 1.45;
   margin: 0 auto;
   text-align: center;
-  font-family: system-ui, -apple-system, sans-serif;
   background: linear-gradient(135deg, 
     #ffffff 0%, 
     #f8fafc 35%, 
@@ -66,7 +60,7 @@
 
 .timeline-cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.5rem;
   direction: rtl;
   align-items: stretch;
@@ -128,9 +122,6 @@
   gap: 0.45rem;
   padding: 0.32rem 0.85rem;
   border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.4px;
   background: rgba(30, 78, 216, 0.16);
   border: 1px solid rgba(59, 130, 246, 0.45);
   color: #60a5fa;
@@ -138,11 +129,7 @@
 }
 
 .card-step-number-tag {
-  font-size: 1.35rem;
-  font-weight: 900;
   color: rgba(96, 165, 250, 0.3);
-  font-family: monospace, sans-serif;
-  line-height: 1;
 }
 
 /* ==========================================================================
@@ -223,20 +210,15 @@
 }
 
 .placeholder-label-text {
-  font-size: 0.85rem;
   color: #cbd5e1;
-  font-weight: 500;
   max-width: 95%;
-  line-height: 1.4;
 }
 
 .placeholder-badge {
-  font-size: 0.72rem;
   color: #93c5fd;
   background: rgba(30, 78, 216, 0.3);
   padding: 0.22rem 0.7rem;
   border-radius: 7px;
-  font-weight: 600;
   border: 1px solid rgba(59, 130, 246, 0.4);
 }
 
@@ -253,18 +235,12 @@
 }
 
 .step-card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
   color: #f8fafc;
   margin: 0 0 0.8rem 0;
-  line-height: 1.4;
-  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .step-card-intro {
-  font-size: 0.9rem;
   color: #cbd5e1;
-  line-height: 1.6;
   margin-bottom: 0.85rem;
 }
 
@@ -286,9 +262,7 @@
   background: rgba(30, 78, 216, 0.14);
   border: 1px solid rgba(59, 130, 246, 0.25);
   border-radius: 10px;
-  font-size: 0.83rem;
   color: #e2e8f0;
-  line-height: 1.48;
   transition: background 0.2s ease;
 }
 
@@ -298,19 +272,14 @@
 
 .bullet-dot {
   color: #60a5fa;
-  font-size: 1.15rem;
-  line-height: 1;
   flex-shrink: 0;
   margin-top: -2px;
 }
 
 /* Paragraph text (Steps 2, 3, 4) */
 .step-card-desc {
-  font-size: 0.92rem;
   color: #cbd5e1;
-  line-height: 1.7;
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
 }
 
 /* ==========================================================================
@@ -407,8 +376,6 @@
   background: #080d1a;
   border: 3px solid #2563eb;
   color: #ffffff;
-  font-weight: 800;
-  font-size: 1.25rem;
   position: relative;
   box-shadow: 
     0 0 25px rgba(37, 99, 235, 0.5),
@@ -444,7 +411,7 @@
 /* Tablet (max-width: 1200px) */
 @media (max-width: 1200px) {
   .timeline-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.75rem;
   }
 
@@ -453,7 +420,6 @@
   }
 
   .journey-main-title {
-    font-size: 2rem;
   }
 }
 
@@ -468,7 +434,6 @@
   }
 
   .journey-main-title {
-    font-size: 1.6rem;
   }
 
   .timeline-cards-grid {
@@ -513,7 +478,6 @@
   }
 
   .step-card-title {
-    font-size: 1.18rem;
   }
 }
 
@@ -524,11 +488,9 @@
   }
 
   .journey-main-title {
-    font-size: 1.35rem;
   }
 
   .journey-badge {
-    font-size: 0.82rem;
     padding: 0.35rem 1rem;
   }
 

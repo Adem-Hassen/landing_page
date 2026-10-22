@@ -53,7 +53,8 @@ export const courseModules: CourseModule[] = [
     title: 'اصنع "Creative Strategy" قوية',
     description: 'كلمة "Creative strategy" تسمع فيها برشة أما قليل إلي يعرف شمعنها ويعرف يخدمها بالطريقة المحترفة. بش تتعلم ال-"Creative Strategy" على 9a3da صحيحة',
     featured: true,
-    featured_message: "A Masterclass $$$",
+    featured_message: "A Masterclass"
+
   },
   {
     id: 7,
@@ -68,7 +69,7 @@ export const courseModules: CourseModule[] = [
     title: 'إتقان ال-"Copywriting"',
     description: "الجزء هذا وحدو قيمتوا برشا ملاين. كفاش تقنع أي عبد عن طريق الكلمات. الفلوس الكل في الجزء هذا .",
     featured: true,
-    featured_message: "A Masterclass $$$",
+    featured_message: "A Masterclass"
   },
   {
     id: 9,
@@ -76,7 +77,7 @@ export const courseModules: CourseModule[] = [
     title: "كورس مونتاج الفيديوات كامل",
     description: 'بش تتعلم كفاش تمنتج بالتيلفون بطريقة سهلة أما باش تتعلم زادة الطريقة المحترفة مع "Youssef Smaoui" إلي خادم مع عشرات البرندة المعروفة في تونس. الكورس هذا وحدو يسوى برش فلوس',
     featured: true,
-    featured_message: "A Masterclass $$$",
+    featured_message: "A Masterclass",
   },
   {
     id: 10,
@@ -98,7 +99,7 @@ export const courseModules: CourseModule[] = [
     title: "Media buying مع محمد بوعلي",
     description: 'باش تتعلم من واحد من أحسن Media Buyer في تونس. بعد ماوصل للمليار "1.000.000dt" في converty وافق أنوا يشارك معاك خبرتو و تجربتو في الإعلانات "Sponsoring" ويعلمك خطوة بخطوة السيستام إلي يخدم بيه. قيمة الجزء هذا أكثر برشا من أي مبلغ…',
     featured: true,
-    featured_message: "A Masterclass $$$",
+    featured_message: "A Masterclass",
   },
   {
     id: 13,

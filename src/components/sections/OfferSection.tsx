@@ -95,7 +95,7 @@ ${message ? `الرسالة: ${message}` : ''}
               <div className="contact-icon"><FaWhatsapp size={"1.5em"} style={{marginBottom:"0.5rem"}}/></div>
               <div className="contact-details">
                 <h4>الواتساب</h4>
-                <p>+216 12 345 678</p>
+                <p><bdi>+216 12 345 678</bdi></p>
               </div>
             </div>
             
@@ -103,7 +103,7 @@ ${message ? `الرسالة: ${message}` : ''}
               <div className="contact-icon"><MdOutlineMailOutline size={"1.5em"}/></div>
               <div className="contact-details">
                 <h4>البريد الإلكتروني</h4>
-                <p>contact@example.com</p>
+                <p><bdi>contact@example.com</bdi></p>
               </div>
             </div>
             
@@ -128,7 +128,7 @@ ${message ? `الرسالة: ${message}` : ''}
           
   <div className="offer-content">
       <div className="price-section">
-        <div className="price">299 <span className="currency">دينار</span></div>
+        <div className="price"><bdi>299</bdi> <span className="currency">دينار</span></div>
       </div>
       <div className="animation-section">
    
@@ -184,7 +184,7 @@ ${message ? `الرسالة: ${message}` : ''}
      
     <div className="offer-content">
       <div className="price-section">
-        <div className="price">299 <span className="currency">دينار</span></div>
+        <div className="price"><bdi>299</bdi> <span className="currency">دينار</span></div>
       </div>
        <div className="features-with-overlay-animation">
       <div className="animation-overlay">

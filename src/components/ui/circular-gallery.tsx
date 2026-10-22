@@ -290,9 +290,9 @@ const CircularGalleryComponent = (
                       />
                     )}
                     <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
-                      <h2 className="text-xl font-bold">{(item as any).common || ''}</h2>
-                      <em className="text-sm italic opacity-80">{(item as any).binomial || ''}</em>
-                      <p className="text-xs mt-2 opacity-70">
+                      <h2 className="font-heading text-[length:var(--text-h2)] font-bold leading-[var(--leading-h2)] tracking-normal">{(item as any).common || ''}</h2>
+                      <em className="font-body text-[length:var(--text-small)] not-italic font-medium leading-[var(--leading-small)] tracking-normal opacity-80">{(item as any).binomial || ''}</em>
+                      <p className="font-body text-[length:var(--text-body)] font-normal leading-[var(--leading-body)] tracking-normal mt-2 opacity-70">
                         Photo by: {(item as any).photo?.by || ''}
                       </p>
                     </div>

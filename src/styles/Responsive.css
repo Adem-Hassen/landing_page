@@ -78,16 +78,13 @@ html, body {
   }
 
   .title1 {
-    font-size: 2.8rem !important;
     max-width: 900px;
   }
 
   .title {
-    font-size: 1.8rem !important;
   }
 
   .title2 {
-    font-size: 1.25rem !important;
   }
 
   .video-section {
@@ -175,11 +172,9 @@ html, body {
    ========================================================================== */
 @media (max-width: 992px) {
   .title1 {
-    font-size: 2.3rem !important;
   }
 
   .title {
-    font-size: 1.5rem !important;
   }
 
   .video-section {
@@ -342,16 +337,12 @@ html, body {
   }
 
   .title1 {
-    font-size: 1.95rem !important;
-    line-height: 1.35 !important;
   }
 
   .title {
-    font-size: 1.25rem !important;
   }
 
   .title2 {
-    font-size: 1.05rem !important;
   }
 
   .video-section {
@@ -361,16 +352,9 @@ html, body {
 
   .cta-section {
     top: 0 !important;
-    margin-top: 1rem !important;
+    margin-top: -1rem !important;
     padding: 0.5rem 1rem !important;
   }
-
-  /* Floating Icons */
-  .floating-icons .icon {
-    opacity: 0.08;
-    transform: scale(0.6);
-  }
-
   /* Problems */
   .problems-section {
     padding: 40px 1rem;
@@ -478,7 +462,6 @@ html, body {
 
   .contact-form input,
   .contact-form textarea {
-    font-size: 16px !important; /* Prevents auto-zoom on iOS */
     padding: 0.65rem 0.85rem !important;
   }
 
@@ -494,15 +477,12 @@ html, body {
    ========================================================================== */
 @media (max-width: 480px) {
   .title1 {
-    font-size: 1.65rem !important;
   }
 
   .title {
-    font-size: 1.15rem !important;
   }
 
   .title2 {
-    font-size: 0.95rem !important;
   }
 
   .point-content {
@@ -543,6 +523,5 @@ html, body {
   }
 
   .price {
-    font-size: 2.2rem !important;
   }
 }

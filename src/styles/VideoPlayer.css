@@ -104,8 +104,6 @@
 
 .time-display {
   color: #cbd5e1;
-  font-size: 0.9rem;
-  font-family: monospace;
   min-width: 100px;
 }
 
@@ -170,7 +168,6 @@
   }
 
   .time-display {
-    font-size: 0.8rem;
     min-width: 70px;
   }
 

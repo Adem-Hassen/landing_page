@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: ['Alexandria', 'IBM Plex Sans Arabic', 'Segoe UI', 'Tahoma', 'sans-serif'],
+        body: ['IBM Plex Sans Arabic', 'Segoe UI', 'Tahoma', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

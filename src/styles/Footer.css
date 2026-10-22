@@ -19,11 +19,8 @@
 /* Copyright */
 .footer-copyright p {
   color: #94a3b8;
-  font-size: 1rem;
-  font-family: system-ui, -apple-system, sans-serif;
   margin: 0;
   direction: ltr;
-  font-weight: 400;
 }
 
 /* Responsive Design */
@@ -33,7 +30,6 @@
   }
   
   .footer-copyright p {
-    font-size: 0.85rem;
   }
 }
 
@@ -43,6 +39,5 @@
   }
   
   .footer-copyright p {
-    font-size: 0.8rem;
   }
 }

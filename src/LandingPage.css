@@ -5,7 +5,6 @@
 
 /* Section Modular Stylesheets */
 @import "./styles/HeroSection.css";
-@import "./styles/FloatingIcons.css";
 @import "./styles/ProblemsSection.css";
 @import "./styles/JourneyTimeline.css";
 @import "./styles/SolutionsSection.css";
