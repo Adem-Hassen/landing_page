@@ -315,11 +315,6 @@
     font-size: 3rem;
   }
   
-  .card-title {
-  }
-  
-  .card-description {
-  }
 }
 
 @media (max-width: 480px) {
@@ -608,8 +603,6 @@
   min-height: 4.2em;
 }
 
-.quest-card .quest-text {
-}
 
 .quest-grid {
   display: grid;
