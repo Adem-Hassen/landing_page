@@ -16,4 +16,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    // Image originals are only read by scripts/optimize-images.mjs; watching them can hit EBUSY on Windows.
+    watch: { ignored: ['**/image-sources/**'] },
+  },
 })
