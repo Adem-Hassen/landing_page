@@ -29,20 +29,6 @@
   position: relative;
 }
 
-.solutions-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1.25rem;
-  background: rgba(30, 78, 216, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  border-radius: 9999px;
-  color: #60a5fa;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 0 25px rgba(30, 78, 216, 0.2);
-  backdrop-filter: blur(8px);
-}
-
 .solutions-main-title {
   color: #f1f5f9;
   margin: 0 auto 1.25rem auto;
@@ -500,4 +486,30 @@
 
   .details-item {
   }
+}
+
+/* Link from a tutor's details to their results (ResultsSection) */
+.details-results-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.35rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #93c5fd;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(147, 197, 253, 0.45);
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.details-results-link:hover,
+.details-results-link:focus-visible {
+  color: #ffffff;
+  outline: none;
+  text-decoration-color: #60a5fa;
 }

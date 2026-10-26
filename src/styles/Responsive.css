@@ -35,77 +35,14 @@ html, body {
   overflow: hidden;
 }
 
-.problem-lottie {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.course-carousel-prev,
-.course-carousel-next {
-  width: 45px;
-  height: 45px;
-  background: rgba(15, 23, 42, 0.9);
-  border: 2px solid rgba(59, 130, 246, 0.5);
-  color: #60a5fa;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-}
-
-.course-carousel-prev {
-  left: -50px;
-}
-
-.course-carousel-next {
-  right: -50px;
-}
-
 /* ==========================================================================
    2. LAPTOPS & TABLETS IN LANDSCAPE (max-width: 1200px)
    ========================================================================== */
 @media (max-width: 1200px) {
-  .hero-section {
-    padding-top: 5rem;
-    min-height: auto;
-  }
-
-  .title1 {
-    max-width: 900px;
-  }
-
-  .title {
-  }
-
-  .title2 {
-  }
-
-  .video-section {
-    margin-top: -3rem !important;
-    padding: 0 1.5rem !important;
-  }
-
-  .cta-section {
-    top: 0 !important;
-    margin-top: 1rem !important;
-  }
-
   /* Problems */
   .problems-section {
     min-height: auto;
     padding: 60px 1.5rem;
-  }
-
-  .problems-cards {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-    gap: 1.5rem;
   }
 
   .animation-section {
@@ -117,43 +54,11 @@ html, body {
     padding: 60px 1.5rem;
   }
 
-  .single-reasons-box {
-    max-width: 1000px;
-    margin: 3rem auto !important;
-  }
-
   /* Course Carousel Arrows - Prevent bleeding outside 1200px */
-  .course-carousel-prev {
-    left: -15px !important;
-  }
-
-  .course-carousel-next {
-    right: -15px !important;
-  }
 
   /* Stacked Cards */
-  .stacked-cards-container {
-    height: 650px;
-  }
-
-  .stacked-cards {
-    width: min(85vw, 680px);
-    height: min(60vw, 480px);
-  }
-
-  .nav-arrow.prev-arrow {
-    left: 2rem !important;
-  }
-
-  .nav-arrow.next-arrow {
-    right: 2rem !important;
-  }
 
   /* Why Learn */
-  .first-row {
-    grid-template-columns: 1.5fr 1fr;
-    gap: 1.5rem;
-  }
 
   /* Flip Cards */
   .flip-cards-container {
@@ -171,147 +76,13 @@ html, body {
    3. TABLETS (PORTRAIT) & MEDIUM SCREENS (max-width: 992px)
    ========================================================================== */
 @media (max-width: 992px) {
-  .title1 {
-  }
-
-  .title {
-  }
-
-  .video-section {
-    margin-top: 0 !important;
-    padding: 0 1rem !important;
-  }
-
   /* Timeline - Switch to clean vertical spine to prevent horizontal overlap */
-  .timeline-connectors {
-    display: none !important;
-  }
-
-  .horizontal-timeline {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2.5rem !important;
-    align-items: center !important;
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 2.5rem auto !important;
-    padding: 0 1rem !important;
-    position: relative !important;
-  }
-
-  .horizontal-timeline::before {
-    content: '';
-    position: absolute;
-    top: 30px;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    background: linear-gradient(to bottom, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%);
-    z-index: 1;
-    opacity: 0.6;
-  }
-
-  .timeline-point {
-    position: relative !important;
-    width: 100% !important;
-    left: 0 !important;
-    right: 0 !important;
-    margin-top: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    z-index: 2 !important;
-  }
-
-  .timeline-point:nth-child(n) {
-    left: 0 !important;
-    right: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  .point-circle {
-    width: 56px !important;
-    height: 56px !important;
-    background: #0f172a !important;
-    border: 3px solid #3b82f6 !important;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4) !important;
-    z-index: 3 !important;
-  }
-
-  .point-content {
-    background: rgba(15, 23, 42, 0.95);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-    border-radius: 16px;
-    padding: 1.25rem 1.5rem;
-    width: 100%;
-    max-width: 440px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    direction: rtl;
-    margin-top: 0.75rem;
-  }
-
-  .journey-main-title {
-    margin-bottom: 3rem !important;
-  }
 
   /* Solutions */
-  .single-reasons-box {
-    flex-direction: column !important;
-    gap: 1.75rem !important;
-    padding: 2.25rem 1.5rem !important;
-  }
-
-  .reason-item {
-    width: 100% !important;
-    justify-content: center !important;
-    gap: 1.25rem !important;
-  }
-
-  .reason-separator {
-    width: 70% !important;
-    height: 1px !important;
-    background: rgba(30, 78, 216, 0.4) !important;
-    margin: 0.25rem auto !important;
-  }
 
   /* Stacked Cards */
-  .stacked-cards-container {
-    height: 520px;
-  }
-
-  .stacked-cards {
-    width: min(85vw, 500px);
-    height: min(60vw, 360px);
-  }
-
-  .nav-arrow.prev-arrow {
-    left: 0.5rem !important;
-  }
-
-  .nav-arrow.next-arrow {
-    right: 0.5rem !important;
-  }
 
   /* Why Learn */
-  .first-row {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .second-row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-
-  .profile-card.main-card {
-    height: 320px !important;
-  }
-
-  .reason-card.large-rectangle {
-    min-height: 180px !important;
-  }
 
   /* Flip Cards */
   .flip-cards-container {
@@ -330,43 +101,9 @@ html, body {
    4. MOBILE PHONES (max-width: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
-  .hero-section {
-    padding-top: 4.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .title1 {
-  }
-
-  .title {
-  }
-
-  .title2 {
-  }
-
-  .video-section {
-    padding: 0 0.75rem !important;
-    margin-top: 0 !important;
-  }
-
-  .cta-section {
-    top: 0 !important;
-    margin-top: -1rem !important;
-    padding: 0.5rem 1rem !important;
-  }
   /* Problems */
   .problems-section {
     padding: 40px 1rem;
-  }
-
-  .problems-cards {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .problem-card {
-    padding: 1.5rem 1rem !important;
   }
 
   .animation-section {
@@ -375,64 +112,12 @@ html, body {
   }
 
   /* Course Carousel Arrows - Stay inside container */
-  .course-carousel-prev {
-    left: 4px !important;
-    width: 38px !important;
-    height: 38px !important;
-  }
-
-  .course-carousel-next {
-    right: 4px !important;
-    width: 38px !important;
-    height: 38px !important;
-  }
 
   /* Stacked Cards */
-  .stacked-cards-container {
-    height: 420px;
-  }
-
-  .stacked-cards {
-    width: min(88vw, 360px);
-    height: min(65vw, 260px);
-  }
-
-  .nav-arrow {
-    width: 38px !important;
-    height: 38px !important;
-    font-size: 1.25rem !important;
-  }
-
-  .nav-arrow.prev-arrow {
-    left: 2px !important;
-  }
-
-  .nav-arrow.next-arrow {
-    right: 2px !important;
-  }
 
   /* Why Learn */
-  .second-row {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .profile-card.main-card {
-    height: 290px !important;
-  }
 
   /* Results Carousel Navigation */
-  .carousel-nav-prev {
-    left: 4px !important;
-    width: 36px !important;
-    height: 36px !important;
-  }
-
-  .carousel-nav-next {
-    right: 4px !important;
-    width: 36px !important;
-    height: 36px !important;
-  }
 
   /* Flip Cards & Form */
   .flip-card,
@@ -480,34 +165,6 @@ html, body {
   }
 
   .title {
-  }
-
-  .title2 {
-  }
-
-  .point-content {
-    padding: 1rem !important;
-    max-width: 100% !important;
-  }
-
-  .point-circle {
-    width: 48px !important;
-    height: 48px !important;
-  }
-
-  .stacked-cards-container {
-    height: 350px;
-  }
-
-  .stacked-cards {
-    width: min(90vw, 310px);
-    height: min(65vw, 225px);
-  }
-
-  .nav-arrow {
-    width: 32px !important;
-    height: 32px !important;
-    font-size: 1.1rem !important;
   }
 
   .flip-card,

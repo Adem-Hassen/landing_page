@@ -3,10 +3,27 @@ import '../../styles/VideoPlayer.css';
 
 interface VideoPlayerProps {
   videoUrl: string;
+  /** YouTube only: poster shown until the user clicks play (the iframe loads only then). */
+  poster?: string;
+  posterSrcSet?: string;
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl }) => {
+// Opens connections to YouTube once, when the user shows intent to play.
+let youtubeWarmedUp = false;
+const warmUpYouTube = () => {
+  if (youtubeWarmedUp) return;
+  youtubeWarmedUp = true;
+  for (const href of ['https://www.youtube.com', 'https://www.google.com', 'https://i.ytimg.com']) {
+    const link = document.createElement('link');
+    link.rel = 'preconnect';
+    link.href = href;
+    document.head.appendChild(link);
+  }
+};
+
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, poster, posterSrcSet }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [youtubeActive, setYoutubeActive] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -62,17 +79,51 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl }) => {
 
   if (isYouTube) {
     const youtubeId = getYouTubeId(videoUrl);
+    const showFacade = !!poster && !youtubeActive;
     return (
       <div className="video-player-container large-video">
         <div className="video-wrapper">
-          <iframe
-            src={`https://www.youtube.com/embed/${youtubeId}?rel=0`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="youtube-iframe large-iframe"
-          ></iframe>
+          {showFacade ? (
+            <button
+              type="button"
+              className="youtube-facade"
+              aria-label="تشغيل الفيديو"
+              onClick={() => setYoutubeActive(true)}
+              onPointerEnter={warmUpYouTube}
+              onFocus={warmUpYouTube}
+            >
+              <img
+                src={poster}
+                srcSet={posterSrcSet}
+                sizes="(min-width: 768px) min(85vw, 1040px), 100vw"
+                alt=""
+                width={1280}
+                height={720}
+                className="youtube-facade__poster"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+              <span className="youtube-facade__play" aria-hidden="true">
+                <svg viewBox="0 0 68 48" width="68" height="48">
+                  <path
+                    className="youtube-facade__play-bg"
+                    d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z"
+                  />
+                  <path d="M45 24 27 14v20" fill="#fff" />
+                </svg>
+              </span>
+            </button>
+          ) : (
+            <iframe
+              src={`https://www.youtube.com/embed/${youtubeId}?rel=0${youtubeActive ? '&autoplay=1' : ''}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="youtube-iframe large-iframe"
+            ></iframe>
+          )}
         </div>
       </div>
     );

@@ -3,30 +3,9 @@
    Split into modular section stylesheets in ./styles/
    ========================================================================== */
 
-/* Section Modular Stylesheets */
-@import "./styles/HeroSection.css";
-@import "./styles/ProblemsSection.css";
-@import "./styles/JourneyTimeline.css";
-@import "./styles/SolutionsSection.css";
-@import "./styles/CourseContentSection.css";
-@import "./styles/CoursePartsSection.css";
-@import "./styles/TargetAudienceSection.css";
-@import "./styles/WhyLearnSection.css";
-@import "./styles/ResultsSection.css";
-@import "./styles/OfferSection.css";
-@import "./styles/FAQSection.css";
-@import "./styles/Footer.css";
+/* Section stylesheets are imported by their components (below-the-fold ones load with that chunk). */
 
 /* Shared Base Utilities & Keyframes */
-.landing-section {
-  min-height: 100vh;
-  padding: 80px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-}
 
 @keyframes subtleGlow {
   0%, 100% {
@@ -81,4 +60,53 @@
 .cta-section {
   position: relative;
   z-index: 3;
+}
+
+/* Ensure buttons are visible */
+button {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Continuous decorative animations: paused while their section is off-screen
+   (data-offscreen is toggled by BelowFold) and for reduced-motion users. */
+[data-offscreen] .btn-glow,
+[data-offscreen] .problems-container::after,
+[data-offscreen] .problems-container .glow-corner-bottom,
+[data-offscreen] .problems-container .glow-corner-top-right,
+[data-offscreen] .problems-container .glow-corner-bottom-left,
+[data-offscreen] .problems-main-title,
+[data-offscreen] .problems-subtitle,
+[data-offscreen] .pcluster__dot::after,
+[data-offscreen] .module-featured-badge.badge-gold::after,
+[data-offscreen] .target-audience-main-title,
+[data-offscreen] .target-audience-container .glow-corner-top-left,
+[data-offscreen] .target-audience-container .glow-corner-bottom-right,
+[data-offscreen] .offer-main-title,
+[data-offscreen] .offer-badge,
+[data-offscreen] .faq-main-title,
+[data-offscreen] .faq-container .glow-corner-top-left,
+[data-offscreen] .faq-container .glow-corner-bottom-right {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root .gradient-bg::before,
+  :root .btn-glow,
+  :root .problems-container::after,
+  :root .problems-container .glow-corner-bottom,
+  :root .problems-container .glow-corner-top-right,
+  :root .problems-container .glow-corner-bottom-left,
+  :root .problems-main-title,
+  :root .problems-subtitle,
+  :root .target-audience-main-title,
+  :root .target-audience-container .glow-corner-top-left,
+  :root .target-audience-container .glow-corner-bottom-right,
+  :root .offer-main-title,
+  :root .offer-badge,
+  :root .faq-main-title,
+  :root .faq-container .glow-corner-top-left,
+  :root .faq-container .glow-corner-bottom-right {
+    animation-play-state: paused;
+  }
 }

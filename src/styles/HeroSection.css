@@ -1,14 +1,5 @@
 /* ===== HERO SECTION STYLES ===== */
 /* Shared landing section base */
-.landing-section {
-    min-height: 100vh;
-    padding: 80px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-}
 .title {
   color: #cbd5e1; /* Lighter gray instead of white */
   max-width: 900px;
@@ -55,26 +46,25 @@
 }
 
 
-/* Update hero-section to accommodate second title */
+/* Title, CTA and video flow as one column; spacing comes only from gap.
+   padding-top clears the fixed 70px navbar. */
 .hero-section {
-  min-height: 70vh; /* Adjusted for additional title */
+  --hero-gap: clamp(1.25rem, 3.5vh, 2.25rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: var(--hero-gap);
+  min-height: auto;
+  padding: calc(70px + clamp(2rem, 7vh, 4.5rem)) 20px clamp(2rem, 5vh, 3.5rem);
   text-align: center;
   position: relative;
   z-index: 2;
-  gap: 0.5rem; /* Reduced gap */
-  padding: 0 20px;
-  padding-top: 2rem;
 }
+
 .cta-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 20px;
-    top: -150px;
     position: relative;
     z-index: 2;
   }
@@ -95,25 +85,21 @@
 /* Responsive design for CTA section */
 
 
-@media (max-width: 480px) {
-
-  .title1 {
-    color: #e2e8f0;
-    font-size: 1.5rem;
-   
-}
-
-}
-  
 .title1 {
     color: #e2e8f0;
     max-width: 1100px;
-    font-size: 2.5rem;
+    font-size: clamp(2.25rem, 1.4rem + 2.2vw, 3.25rem);
     margin: 0 auto;
+    text-wrap: balance;
     word-wrap: break-word;
     word-break: keep-all;
     direction: rtl;
     filter: brightness(1.3);
+}
+
+.title1 .hero-line {
+    display: block;
+    text-wrap: balance;
 }
 
 /* Gradient lives on each word: background-clip:text on the h1 does not reach
@@ -146,94 +132,17 @@
     }
 }
 
-.hero-divider {
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    border-radius: 2px;
-    animation: dividerPulse 2s ease-in-out infinite;
-    margin: 0.5rem 0; /* Reduced margin */
-}
-
-@keyframes dividerPulse {
-    0%, 100% {
-        transform: scaleX(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scaleX(1.2);
-        opacity: 0.8;
-    }
-}
-
 /* For better Arabic text rendering */
-.title2 {
-    color: #cbd5e1;
-    max-width: 800px;
-    margin: 0 auto;
-    direction: rtl;
-    text-align: center;
-    animation: fadeInUp 1s ease-out;
-    margin-bottom: 1rem; 
-}
 
 .video-section {
-    padding: 0 20px 2rem 20px; /* Reduced top padding, kept bottom padding */
+    width: 100%;
+    display: flex;
+    justify-content: center;
     position: relative;
     z-index: 2;
-    margin-top: -12rem; /* Negative margin to pull video closer */
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
-    .hero-section {
-        gap: 0.75rem; /* Reduced from 1.5rem */
-        padding: 0 15px;
-        padding-top: 5.5rem;
-        min-height: 50vh; /* Further reduced on mobile */
-    }
-    
-    .title2 {
-        margin-bottom: 0.5rem; /* Reduced on mobile */
-    }
-    
-    .hero-divider {
-        width: 80px;
-        margin: 0.25rem 0; /* Reduced on mobile */
-    }
-
-    .video-section {
-        padding: 0 15px 1.5rem 15px; /* Reduced on mobile */
-        margin-top: -0.5rem; /* Less negative margin on mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-section {
-        gap: 0.5rem; /* Further reduced on small mobile */
-        padding-top: 5.25rem;
-        min-height: 40vh;
-    }
-    
-    .title1 {
-        font-size: 1.3rem;
-    }
-    
-    .title2 {
-        margin-bottom: 0.25rem;
-    }
-    
-    .hero-divider {
-        width: 60px;
-        height: 3px;
-        margin: 0.2rem 0;
-    }
-
-    .video-section {
-        padding: 0 10px 1rem 10px;
-        margin-top: -0.25rem;
-    }
-}
 
 /* ===== VIDEO FRAME: glow + border beam ===== */
 @property --beam-head {
@@ -246,15 +155,22 @@
     --video-radius: 12px;
     position: relative;
     isolation: isolate;
-    max-width: 1200px;
-    margin: 3rem auto;
+    width: min(100%, 85%, 1040px);
+    aspect-ratio: 16 / 9;
+    margin: 0;
     border-radius: var(--video-radius);
 }
 
 .video-frame > .video-player-container.large-video {
+    height: 100%;
     margin: 0;
     max-width: none;
     border-radius: var(--video-radius);
+}
+
+.video-frame .video-wrapper {
+    height: 100%;
+    aspect-ratio: auto;
 }
 
 .video-frame::before {
@@ -319,18 +235,32 @@
     animation-play-state: paused;
 }
 
-@media (max-width: 1024px) {
+/* Short laptop screens: tighter spacing and a smaller video so the title,
+   CTA and the top of the video share the first screen. */
+@media (max-height: 800px) and (min-width: 1024px) {
+    .hero-section {
+        --hero-gap: clamp(1rem, 2.5vh, 1.5rem);
+        padding-top: calc(70px + clamp(1.25rem, 4vh, 2.25rem));
+    }
+
+    .title1 {
+        font-size: clamp(2.25rem, 1.2rem + 1.8vw, 2.875rem);
+    }
+
     .video-frame {
-        margin: 1.5rem auto;
-        max-width: 95%;
+        width: min(100%, 85%, 880px);
+    }
+}
+
+@media (max-height: 680px) and (min-width: 1024px) {
+    .video-frame {
+        width: min(100%, 85%, 760px);
     }
 }
 
 @media (max-width: 768px) {
     .video-frame {
         --video-radius: 10px;
-        margin: 1rem auto;
-        max-width: 100%;
     }
 
     .video-frame::before {
@@ -340,10 +270,31 @@
     }
 }
 
+@media (max-width: 767px) {
+    .hero-section {
+        --hero-gap: 1.25rem;
+        padding: calc(70px + 1.75rem) 16px 2rem;
+    }
+
+    /* "التجارة الإلكترونية في تونس" is ~13.8em wide: this keeps it on one line,
+       so only the second phrase may wrap (three lines at most). */
+    .title1 {
+        font-size: clamp(1.25rem, calc((100vw - 32px) / 14.5), 2.125rem);
+    }
+
+    .video-frame {
+        width: 100%;
+    }
+}
+
 @media (max-width: 480px) {
+    .hero-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
     .video-frame {
         --video-radius: 8px;
-        margin: 0.75rem auto;
     }
 }
 

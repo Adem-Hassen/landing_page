@@ -119,15 +119,12 @@ a {
 
 button,
 .btn,
-.nav-link,
-.login-link,
 .flip-btn,
 .email-btn,
 .back-btn,
 .faq-question,
 .faq-ask-button,
-.gallery-nav-btn,
-.nav-arrow {
+.gallery-nav-btn {
   font-size: var(--text-btn);
   font-weight: var(--weight-btn);
   line-height: var(--leading-btn);
@@ -142,9 +139,7 @@ select {
   line-height: var(--leading-body);
 }
 
-.title2,
 .problems-description,
-.why-learn-subtitle,
 .teachers-showcase-subtitle,
 .course-content-subtitle,
 .faq-subtitle {
@@ -157,7 +152,6 @@ select {
 
 .question-text,
 .module-card-title,
-.step-card-title,
 .faq-ask-title {
   font-family: var(--font-heading);
   font-size: var(--text-h4);
@@ -173,32 +167,19 @@ select {
   letter-spacing: 0;
 }
 
-.solutions-badge,
-.journey-badge,
-.card-step-badge,
-.placeholder-label-text,
-.placeholder-badge,
-.course-badge,
 .module-number-pill,
 .module-featured-badge,
 .placeholder-tag,
 .placeholder-subtag,
 .module-toggle-hint,
 .gallery-active-indicator,
-.gallery-drag-hint,
-.audience-panel-tag,
 .faq-number,
-.quest-marker,
-.quest-step,
-.card-step-number-tag,
 .faq-ask-text,
 .faq-composer-hint,
 .offer-badge,
 .form-group label,
 .footer-copyright,
-.footer-copyright p,
-.nav-link,
-.login-link {
+.footer-copyright p {
   font-family: var(--font-body);
   font-size: var(--text-small);
   font-weight: var(--weight-small);
@@ -206,18 +187,7 @@ select {
   letter-spacing: 0;
 }
 
-.part-number {
-  font-family: var(--font-heading);
-  font-size: var(--text-h4);
-  font-weight: var(--weight-h4);
-  line-height: var(--leading-h4);
-  font-variant-numeric: tabular-nums;
-  unicode-bidi: isolate;
-}
-
-.audience-panel-number,
-.quest-ghost,
-.stat-number {
+.audience-panel-number {
   font-family: var(--font-heading);
   font-weight: var(--weight-price);
   line-height: var(--leading-price);
@@ -242,9 +212,6 @@ select {
 
 .details-text,
 .feature > span:last-child,
-.step-card-intro,
-.step-bullet-item,
-.step-card-desc,
 .module-card-description,
 .answer-text,
 .faq-ask-input {
@@ -259,21 +226,10 @@ select {
 .faq-question,
 .faq-ask-button,
 .gallery-nav-btn,
-.nav-arrow,
 .back-btn,
 .control-btn {
   min-width: 44px;
   min-height: 44px;
-}
-
-.stacked-cards-indicators .indicator {
-  position: relative;
-}
-
-.stacked-cards-indicators .indicator::after {
-  content: "";
-  position: absolute;
-  inset: -14px;
 }
 
 [dir="rtl"] {
@@ -291,11 +247,6 @@ select {
 .price,
 .currency,
 .faq-number,
-.quest-marker,
-.quest-step,
-.quest-ghost,
-.audience-number,
-.timeline-number,
 .gallery-active-indicator,
 .module-number-pill {
   font-variant-numeric: tabular-nums;

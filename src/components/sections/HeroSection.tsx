@@ -1,18 +1,20 @@
 import { Fragment, useEffect, useRef, useState, type CSSProperties } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import '../../styles/HeroSection.css';
 import Button from '../shared/Button';
 import VideoPlayer from '../shared/VideoPlayer';
 
-const HEADLINE =
-  'الأسرار إلي باش تكتشفهم بعد ما تتفرّج في الفيديو هذا، باش تخلّيك تكتشف إنك قادر تعمل فلوس أكثر ببرشا من التجارة الإلكترونية في تونس، سواء كنت مبتدئ ولا عندك خبرة!';
-const WORDS = HEADLINE.split(' ');
+const HEADLINE_LINES = ['التجارة الإلكترونية في تونس', 'أسهل مما تتصوّر… كي تعرف الأسرار'];
+const LINE_WORDS = HEADLINE_LINES.map((line) => line.split(' '));
+const LINE_OFFSETS = LINE_WORDS.map((_, line) =>
+  LINE_WORDS.slice(0, line).reduce((n, words) => n + words.length, 0)
+);
+const WORD_COUNT = LINE_WORDS.reduce((n, words) => n + words.length, 0);
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD_DURATION = 0.6;
-// ~30 words: 35ms keeps the whole sequence within ~1.8s.
-const WORD_STAGGER = 0.035;
-const LAST_WORD_START = (WORDS.length - 1) * WORD_STAGGER;
+const WORD_STAGGER = 0.07;
+const LAST_WORD_START = (WORD_COUNT - 1) * WORD_STAGGER;
 const CTA_DELAY = LAST_WORD_START + 0.15;
 const VIDEO_DELAY = CTA_DELAY + 0.15;
 
@@ -53,25 +55,34 @@ export default function HeroSection() {
   const wordTo = { opacity: 1, y: 0, filter: 'blur(0px)' };
 
   return (
-    <>
-      <section id="/" className="hero-section">
-        <h1 className="title1">
-          {WORDS.map((word, i) => (
-            <Fragment key={i}>
-              <motion.span
-                className="hero-word"
-                initial={reduceMotion ? false : wordFrom}
-                animate={wordTo}
-                transition={{ duration: WORD_DURATION, ease: EASE, delay: i * WORD_STAGGER }}
-              >
-                {word}
-              </motion.span>
-              {i < WORDS.length - 1 ? ' ' : null}
-            </Fragment>
-          ))}
-        </h1>
-      </section>
-      <motion.div
+    <section id="/" className="hero-section">
+      <h1 className="title1">
+        {LINE_WORDS.map((words, line) => (
+          <Fragment key={line}>
+            {line > 0 ? ' ' : null}
+            <span className="hero-line">
+              {words.map((word, i) => (
+                <Fragment key={i}>
+                  <m.span
+                    className="hero-word"
+                    initial={reduceMotion ? false : wordFrom}
+                    animate={wordTo}
+                    transition={{
+                      duration: WORD_DURATION,
+                      ease: EASE,
+                      delay: (LINE_OFFSETS[line] + i) * WORD_STAGGER,
+                    }}
+                  >
+                    {word}
+                  </m.span>
+                  {i < words.length - 1 ? ' ' : null}
+                </Fragment>
+              ))}
+            </span>
+          </Fragment>
+        ))}
+      </h1>
+      <m.div
         className="cta-section"
         initial={reduceMotion ? false : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -80,16 +91,20 @@ export default function HeroSection() {
         <Button variant="outline" size="lg" className="btn-glow" onClick={scrollToVideo}>
           تفرج في الفيديو قبل كل شي
         </Button>
-      </motion.div>
+      </m.div>
       <div id="video-section" className="video-section">
-        <motion.div
+        <m.div
           ref={frameRef}
           className="video-frame"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: EASE, delay: VIDEO_DELAY }}
         >
-          <VideoPlayer videoUrl="https://www.youtube.com/watch?v=Kl-I7sUcAOY" />
+          <VideoPlayer
+            videoUrl="https://www.youtube.com/watch?v=Kl-I7sUcAOY"
+            poster="/video/hero-poster-1280.webp"
+            posterSrcSet="/video/hero-poster-640.webp 640w, /video/hero-poster-1280.webp 1280w"
+          />
           <svg className="video-beam" aria-hidden="true" focusable="false">
             <rect className="video-beam__base" pathLength={100} />
             {BEAM_SEGMENTS.map(({ len, cls }) => (
@@ -101,8 +116,8 @@ export default function HeroSection() {
               />
             ))}
           </svg>
-        </motion.div>
+        </m.div>
       </div>
-    </>
+    </section>
   );
 }

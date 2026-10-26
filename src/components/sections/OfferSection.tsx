@@ -188,7 +188,7 @@ ${message ? `الرسالة: ${message}` : ''}
       </div>
        <div className="features-with-overlay-animation">
       <div className="animation-overlay">
-   <img src="Online Course.png" alt="" />
+   <img src="/offer/online-course-800.webp" alt="" width={800} height={800} loading="lazy" decoding="async" />
       
     
       </div>
