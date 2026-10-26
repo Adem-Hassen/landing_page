@@ -51,7 +51,7 @@ export default function Navbar() {
             size="lg" 
             onClick={() => window.location.href = "#join-us"}
           >
-            Join Us 
+            إنضم معانا توّا 
           </Button>
         </div>
       </nav>

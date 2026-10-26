@@ -4,15 +4,17 @@ import '../../styles/HeroSection.css';
 import Button from '../shared/Button';
 import VideoPlayer from '../shared/VideoPlayer';
 
-const HEADLINE =
-  'الأسرار إلي باش تكتشفهم بعد ما تتفرّج في الفيديو هذا، باش تخلّيك تكتشف إنك قادر تعمل فلوس أكثر ببرشا من التجارة الإلكترونية في تونس، سواء كنت مبتدئ ولا عندك خبرة!';
-const WORDS = HEADLINE.split(' ');
+const HEADLINE_LINES = ['التجارة الإلكترونية في تونس', 'أسهل مما تتصوّر… كي تعرف الأسرار'];
+const LINE_WORDS = HEADLINE_LINES.map((line) => line.split(' '));
+const LINE_OFFSETS = LINE_WORDS.map((_, line) =>
+  LINE_WORDS.slice(0, line).reduce((n, words) => n + words.length, 0)
+);
+const WORD_COUNT = LINE_WORDS.reduce((n, words) => n + words.length, 0);
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const WORD_DURATION = 0.6;
-// ~30 words: 35ms keeps the whole sequence within ~1.8s.
-const WORD_STAGGER = 0.035;
-const LAST_WORD_START = (WORDS.length - 1) * WORD_STAGGER;
+const WORD_STAGGER = 0.07;
+const LAST_WORD_START = (WORD_COUNT - 1) * WORD_STAGGER;
 const CTA_DELAY = LAST_WORD_START + 0.15;
 const VIDEO_DELAY = CTA_DELAY + 0.15;
 
@@ -53,24 +55,33 @@ export default function HeroSection() {
   const wordTo = { opacity: 1, y: 0, filter: 'blur(0px)' };
 
   return (
-    <>
-      <section id="/" className="hero-section">
-        <h1 className="title1">
-          {WORDS.map((word, i) => (
-            <Fragment key={i}>
-              <motion.span
-                className="hero-word"
-                initial={reduceMotion ? false : wordFrom}
-                animate={wordTo}
-                transition={{ duration: WORD_DURATION, ease: EASE, delay: i * WORD_STAGGER }}
-              >
-                {word}
-              </motion.span>
-              {i < WORDS.length - 1 ? ' ' : null}
-            </Fragment>
-          ))}
-        </h1>
-      </section>
+    <section id="/" className="hero-section">
+      <h1 className="title1">
+        {LINE_WORDS.map((words, line) => (
+          <Fragment key={line}>
+            {line > 0 ? ' ' : null}
+            <span className="hero-line">
+              {words.map((word, i) => (
+                <Fragment key={i}>
+                  <motion.span
+                    className="hero-word"
+                    initial={reduceMotion ? false : wordFrom}
+                    animate={wordTo}
+                    transition={{
+                      duration: WORD_DURATION,
+                      ease: EASE,
+                      delay: (LINE_OFFSETS[line] + i) * WORD_STAGGER,
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                  {i < words.length - 1 ? ' ' : null}
+                </Fragment>
+              ))}
+            </span>
+          </Fragment>
+        ))}
+      </h1>
       <motion.div
         className="cta-section"
         initial={reduceMotion ? false : { opacity: 0, y: 10 }}
@@ -103,6 +114,6 @@ export default function HeroSection() {
           </svg>
         </motion.div>
       </div>
-    </>
+    </section>
   );
 }

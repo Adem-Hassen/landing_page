@@ -1,58 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../styles/SolutionsSection.css';
 import Button from '../shared/Button';
 import {  ChevronDown, Check } from 'lucide-react';
+import { TEACHERS } from '../../data/teachers';
 
-interface Teacher {
-  id: string;
-  name: string;
-  role: string;
-  image: string;
-  bioPoints: string[];
+interface SolutionsSectionProps {
+  /** Called whenever the open tutor changes ('' when none is open). */
+  onActiveChange?: (id: string) => void;
+  /** "شوف النتائج متاعو": select this tutor in the results section and scroll to it. */
+  onShowResults?: (id: string) => void;
 }
 
-const TEACHERS: Teacher[] = [
-  {
-    id: 'mohamed-aziz',
-    name: 'محمد عزيز اللطيف',
-    role: 'تاجر إلكتروني بخبرة 5 سنين في تونس ومؤسس الأكاديمية',
-    image: '/teachers/mohamed-aziz.jpg',
-    bioPoints: [
-      'ناجح في المجال وبخبرة 5 سنين في السوق التونسية',
-      'جرب، فشل، واكتشف الاستراتيجيات الحقيقية اللي تخدم',
-      'يعلمك بمنهجية واضحة وبخطوات عملية وساهلة تطبقها',
-    ],
-  },
-  {
-    id: 'rayan-bensalem',
-    name: 'ريان بن سالم',
-    role: 'خبير إعلانات رقمية وميديا بايينغ (Media Buying)',
-    image: '/teachers/rayan-bensalem.jpg',
-    bioPoints: [
-      'مسير ميزانيات إعلانية بمئات آلاف الدنانير على فيسبوك وتيك توك',
-      'مختص في استراتيجيات الاستهداف والـ Scaling لتحقيق أعلى عائد',
-      'يوريك أسرار إعلانات تجيب مبيعات حقيقية بأقل تكلفة للعميل',
-    ],
-  },
-  {
-    id: 'youssef-mejri',
-    name: 'يوسف الماجري',
-    role: 'خبير بناء المتاجر والـ CRO واللوجستيك والتوصيل',
-    image: '/teachers/youssef-mejri.jpg',
-    bioPoints: [
-      'صمم أكثر من 80 متجر إلكتروني بمعدلات تحويل مبيعات عالية',
-      'خبير إدارة المخزون، التعامل مع شركات التوصيل وتقليل الـ Retour',
-      'يرافقك في بناء براند احترافية تخدم على المدى الطويل',
-    ],
-  },
-];
-
-export default function SolutionsSection() {
+export default function SolutionsSection({ onActiveChange, onShowResults }: SolutionsSectionProps) {
   const [activeId, setActiveId] = useState<string>(() =>
     typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
       ? ''
       : 'mohamed-aziz'
   );
+
+  useEffect(() => {
+    onActiveChange?.(activeId);
+  }, [activeId, onActiveChange]);
 
   const handleTeacherHover = (id: string) => {
     // Only trigger hover on devices that support true pointer hover (desktop)
@@ -149,6 +117,20 @@ export default function SolutionsSection() {
                         </li>
                       ))}
                     </ul>
+                    {onShowResults && (
+                      <button
+                        type="button"
+                        className="details-results-link"
+                        tabIndex={isActive ? 0 : -1}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onShowResults(teacher.id);
+                        }}
+                        onKeyDown={(e) => e.stopPropagation()}
+                      >
+                        شوف النتائج متاعو
+                      </button>
+                    )}
                   </div>
                 </div>
               </article>
@@ -162,7 +144,7 @@ export default function SolutionsSection() {
             variant="outline"
             size="lg"
             className="btn-glow"
-            onClick={() => (window.location.href = '#section9')}
+            onClick={() => (window.location.href = '#join-us')}
           >
             إبدأ رحلتك نحو النجاح توا
           </Button>

@@ -1,9 +1,9 @@
 /* ==========================================================================
-   JOURNEY TIMELINE STYLES (RTL Numbered 1 → 2 → 3 → 4 - Unicolor Main Blue)
+   JOURNEY: full-screen split steps (text right, image left in RTL)
    ========================================================================== */
 
 .journey-section {
-  padding: 90px 20px 110px 20px;
+  padding: 90px 20px 40px 20px;
   position: relative;
   z-index: 2;
   direction: rtl;
@@ -11,504 +11,310 @@
 
 .journey-container {
   width: 100%;
-  max-width: 1420px;
+  max-width: 1240px;
   margin: 0 auto;
   position: relative;
   direction: rtl;
   text-align: right;
 }
 
-/* Header Section */
-.journey-header {
-  text-align: center;
+.journey-heading {
   max-width: 900px;
-  margin: 0 auto 3.5rem auto;
-  position: relative;
-}
-
-.journey-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1.25rem;
-  background: rgba(30, 78, 216, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.4);
-  border-radius: 9999px;
-  color: #60a5fa;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 0 25px rgba(30, 78, 216, 0.25);
-  backdrop-filter: blur(8px);
-}
-
-.journey-main-title {
-  color: #f1f5f9;
   margin: 0 auto;
+  color: #f1f5f9;
   text-align: center;
-  background: linear-gradient(135deg, 
-    #ffffff 0%, 
-    #f8fafc 35%, 
-    #93c5fd 75%, 
+  background: linear-gradient(135deg,
+    #ffffff 0%,
+    #f8fafc 35%,
+    #93c5fd 75%,
     #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ==========================================================================
-   CARDS GRID (Horizontal 4-Columns RTL)
-   ========================================================================== */
-
-.timeline-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.5rem;
-  direction: rtl;
-  align-items: stretch;
-  margin-bottom: 0;
-}
-
-/* The Individual Card */
-.timeline-card {
-  background: linear-gradient(
-    145deg,
-    rgba(18, 30, 65, 0.88) 0%,
-    rgba(13, 20, 38, 0.92) 55%,
-    rgba(9, 15, 30, 0.96) 100%
-  );
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(59, 130, 246, 0.25);
-  border-radius: 20px;
-  padding: 1.4rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 
-    0 12px 35px rgba(0, 0, 0, 0.45),
-    0 0 20px rgba(30, 78, 216, 0.12);
-}
-
-/* Top Accent Line on Cards */
-.timeline-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 20px;
-  left: 20px;
-  height: 2px;
-  background: linear-gradient(to left, transparent, rgba(59, 130, 246, 0.8), transparent);
-  border-radius: 2px;
-}
-
-.timeline-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(59, 130, 246, 0.6);
-  box-shadow: 
-    0 22px 50px rgba(0, 0, 0, 0.55),
-    0 0 32px rgba(59, 130, 246, 0.3);
-}
-
-/* Card Top Bar with Stage Badge & Big Number */
-.card-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.15rem;
-}
-
-.card-step-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.32rem 0.85rem;
-  border-radius: 9999px;
-  background: rgba(30, 78, 216, 0.16);
-  border: 1px solid rgba(59, 130, 246, 0.45);
-  color: #60a5fa;
-  box-shadow: 0 0 12px rgba(30, 78, 216, 0.18);
-}
-
-.card-step-number-tag {
-  color: rgba(96, 165, 250, 0.3);
-}
-
-/* ==========================================================================
-   IMAGE PLACEHOLDER CONTAINER (Enlarged 4:3 Ratio, Bigger presence)
-   ========================================================================== */
-
-.timeline-image-container {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  min-height: 195px;
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 1.35rem;
-  position: relative;
-  background: rgba(10, 16, 32, 0.75);
-  border: 1.5px dashed rgba(59, 130, 246, 0.4);
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.timeline-card:hover .timeline-image-container {
-  border-color: rgba(59, 130, 246, 0.85);
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
-}
-
-/* Actual image if provided */
-.timeline-step-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  border-radius: 15px;
-}
-
-.timeline-card:hover .timeline-step-img {
-  transform: scale(1.05);
-}
-
-/* Aesthetic Placeholder State */
-.timeline-placeholder-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  padding: 1.1rem;
-  background: radial-gradient(
-    circle at center,
-    rgba(30, 78, 216, 0.22) 0%,
-    rgba(10, 16, 32, 0.8) 100%
-  );
-  text-align: center;
-  cursor: pointer;
-}
-
-.placeholder-icon-halo {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(59, 130, 246, 0.18);
-  border: 1.5px solid rgba(59, 130, 246, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #60a5fa;
-  font-size: 1.35rem;
-  transition: transform 0.3s ease, background 0.3s ease;
-  box-shadow: 0 0 16px rgba(30, 78, 216, 0.3);
-}
-
-.timeline-card:hover .placeholder-icon-halo {
-  transform: scale(1.12);
-  background: rgba(59, 130, 246, 0.32);
-  color: #ffffff;
-  box-shadow: 0 0 22px rgba(59, 130, 246, 0.5);
-}
-
-.placeholder-label-text {
-  color: #cbd5e1;
-  max-width: 95%;
-}
-
-.placeholder-badge {
-  color: #93c5fd;
-  background: rgba(30, 78, 216, 0.3);
-  padding: 0.22rem 0.7rem;
-  border-radius: 7px;
-  border: 1px solid rgba(59, 130, 246, 0.4);
-}
-
-/* ==========================================================================
-   CONTENT / TEXT HIERARCHY
-   ========================================================================== */
-
-.card-text-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  text-align: right;
-  direction: rtl;
-}
-
-.step-card-title {
-  color: #f8fafc;
-  margin: 0 0 0.8rem 0;
-}
-
-.step-card-intro {
-  color: #cbd5e1;
-  margin-bottom: 0.85rem;
-}
-
-/* Bullet list (Step 1) */
-.step-bullet-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+/* Steps */
+.jstory {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 0;
+  padding-inline-start: 56px; /* room for the side progress rail */
   list-style: none;
 }
 
-.step-bullet-item {
+.jstory__step {
+  min-height: 100svh;
   display: flex;
-  align-items: flex-start;
-  gap: 0.55rem;
-  padding: 0.6rem 0.75rem;
-  background: rgba(30, 78, 216, 0.14);
-  border: 1px solid rgba(59, 130, 246, 0.25);
-  border-radius: 10px;
-  color: #e2e8f0;
-  transition: background 0.2s ease;
+  align-items: center;
+  padding-block: 4rem;
+  scroll-margin-top: 70px; /* fixed navbar */
 }
 
-.step-bullet-item:hover {
-  background: rgba(30, 78, 216, 0.24);
+.jstory__article {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  column-gap: clamp(2.5rem, 5vw, 5rem);
 }
 
-.bullet-dot {
-  color: #60a5fa;
-  flex-shrink: 0;
-  margin-top: -2px;
+/* Text (start side: right in RTL) */
+.jstory__text {
+  min-width: 0;
+  max-width: 60ch;
 }
 
-/* Paragraph text (Steps 2, 3, 4) */
-.step-card-desc {
+.jstory__num {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #3b82f6;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  unicode-bidi: isolate;
+}
+
+.jstory__title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem);
+  line-height: 1.3;
+  color: #f8fafc;
+  text-wrap: balance;
+}
+
+.jstory__body {
   color: #cbd5e1;
+  line-height: 1.95;
+}
+
+.jstory__p {
   margin: 0;
 }
 
-/* ==========================================================================
-   TIMELINE TRACK UNDER THE CARDS (Horizontal RTL 1 → 2 → 3 → 4 - Unicolor Blue)
-   ========================================================================== */
+.jstory__p + .jstory__p,
+.jstory__bullets + .jstory__p {
+  margin-top: 1rem;
+}
 
-.timeline-track-wrapper {
+.jstory__bullets {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.jstory__bullets li {
   position: relative;
-  margin-top: 0;
-  direction: rtl;
+  padding-inline-start: 1.25rem;
 }
 
-/* Continuous Glowing Connecting Line behind the circles */
-.timeline-track-line {
+.jstory__bullets li::before {
+  content: "";
   position: absolute;
-  top: 55px; /* Centered with circles (connector 26px + circle half 29px) */
-  right: calc(12.5% - 2px);
-  left: calc(12.5% - 2px);
-  height: 4px;
-  background: linear-gradient(to left, 
-    #1d4ed8 0%, 
-    #2563eb 35%, 
-    #3b82f6 70%, 
-    #60a5fa 100%);
-  box-shadow: 0 0 16px rgba(37, 99, 235, 0.6);
-  border-radius: 4px;
-  z-index: 1;
+  inset-inline-start: 0;
+  top: 0.85em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.7);
 }
 
-/* Light pulse moving RTL from Step 1 (right) to Step 4 (left) */
-.timeline-track-line::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 90px;
+.jstory__cta {
+  margin-top: 2.25rem;
+}
+
+/* Image (end side: left in RTL) */
+.jstory__media {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.jstory__parallax {
+  width: min(100%, calc(80svh * 4 / 5));
+}
+
+.jstory__frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0b1222;
+  box-shadow:
+    0 30px 60px -28px rgba(2, 6, 23, 0.9),
+    0 24px 60px -24px rgba(30, 78, 216, 0.55);
+}
+
+.jstory__img {
+  display: block;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(to left, transparent, #ffffff, transparent);
-  border-radius: 4px;
-  animation: flowRTL 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  object-fit: cover;
 }
 
-@keyframes flowRTL {
-  0% {
-    right: 0%;
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    right: 90%;
-    opacity: 0;
-  }
-}
-
-/* 4 Step Nodes Row UNDER the Cards */
-.timeline-nodes-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 0;
-  direction: rtl;
-}
-
-.timeline-node-item {
+/* Side progress rail (desktop only, rendered by JS) */
+.jstory-progress {
+  position: fixed;
+  top: 50%;
+  inset-inline-start: clamp(14px, 2vw, 28px);
+  z-index: 20;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  gap: 22px;
+  translate: 0 -50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
 }
 
-/* Vertical Stems Connecting Bottom of Cards Down to Circles */
-.node-vertical-connector {
-  width: 2px;
-  height: 26px;
-  background: linear-gradient(to bottom, rgba(59, 130, 246, 0.4), #2563eb);
-  margin-bottom: 6px;
+.jstory-progress.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* Step Circle Marker - Unicolor Main Dark Blue */
-.step-node-circle {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #080d1a;
-  border: 3px solid #2563eb;
-  color: #ffffff;
-  position: relative;
-  box-shadow: 
-    0 0 25px rgba(37, 99, 235, 0.5),
-    inset 0 0 15px rgba(30, 78, 216, 0.4);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: default;
-}
-
-.step-node-circle::before {
-  content: '';
+.jstory-progress__track {
   position: absolute;
-  inset: -6px;
+  top: 6px;
+  bottom: 6px;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+  border-radius: 2px;
+  background: rgba(148, 163, 184, 0.2);
+  overflow: hidden;
+}
+
+.jstory-progress__fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #1e4ed8, #3b82f6);
+  transform-origin: top;
+}
+
+.jstory-progress__dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  padding: 0;
   border-radius: 50%;
-  border: 1.5px dashed rgba(59, 130, 246, 0.5);
-  animation: spinSlow 14s linear infinite;
+  border: 2px solid rgba(148, 163, 184, 0.55);
+  background: #0a1020;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.timeline-node-item:hover .step-node-circle {
-  transform: scale(1.1);
+.jstory-progress__dot::after {
+  /* larger hit area */
+  content: "";
+  position: absolute;
+  inset: -10px;
+}
+
+.jstory-progress__dot:hover,
+.jstory-progress__dot:focus-visible {
   border-color: #60a5fa;
-  box-shadow: 0 0 35px rgba(59, 130, 246, 0.7);
+  outline: none;
 }
 
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.jstory-progress__dot:focus-visible {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.45);
+}
+
+.jstory-progress__dot.is-active {
+  transform: scale(1.25);
+  background: #1e4ed8;
+  border-color: #93b4ff;
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.85);
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Tablets & Mobile)
+   TABLET & MOBILE (below 1024px): stacked, image first, no forced height
    ========================================================================== */
+@media (max-width: 1023px) {
+  .journey-section {
+    padding: 70px 20px 70px 20px;
+  }
 
-/* Tablet (max-width: 1200px) */
-@media (max-width: 1200px) {
-  .timeline-cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .journey-container {
+    max-width: 680px;
+  }
+
+  .jstory {
+    padding-inline-start: 0;
+    margin-top: 3rem;
+  }
+
+  .jstory__step {
+    min-height: 0;
+    display: block;
+    padding-block: 0;
+  }
+
+  .jstory__step + .jstory__step {
+    margin-top: 4.5rem;
+  }
+
+  .jstory__article {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     gap: 1.75rem;
   }
 
-  .timeline-track-wrapper {
-    display: none; /* Hide horizontal desktop spine when cards wrap into 2 cols */
+  .jstory__media {
+    order: -1;
+    width: 100%;
   }
 
-  .journey-main-title {
+  .jstory__parallax {
+    width: 100%;
+  }
+
+  .jstory__frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+
+  .jstory__text {
+    max-width: none;
+  }
+
+  .jstory__title {
+    margin-bottom: 1rem;
+  }
+
+  .jstory__body {
+    line-height: 1.85;
   }
 }
 
-/* Mobile & Small Tablets (max-width: 768px) */
 @media (max-width: 768px) {
   .journey-section {
-    padding: 60px 16px 80px 16px;
-  }
-
-  .journey-header {
-    margin-bottom: 2.75rem;
-  }
-
-  .journey-main-title {
-  }
-
-  .timeline-cards-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 540px;
-    margin: 0 auto;
-    position: relative;
-    padding-right: 32px; /* Dedicated room for the vertical RTL spine */
-    padding-left: 0;
-  }
-
-  /* Vertical timeline spine on the right side for Mobile RTL - Unicolor Blue */
-  .timeline-cards-grid::before {
-    content: '';
-    position: absolute;
-    top: 24px;
-    bottom: 30px;
-    right: 8px;
-    width: 3px;
-    background: linear-gradient(to bottom, #1d4ed8 0%, #2563eb 40%, #3b82f6 75%, #60a5fa 100%);
-    border-radius: 3px;
-    box-shadow: 0 0 14px rgba(37, 99, 235, 0.6);
-    z-index: 1;
-  }
-
-  /* Connecting branch from card to the vertical spine */
-  .timeline-card::after {
-    content: '';
-    position: absolute;
-    top: 28px;
-    right: -32px;
-    width: 24px;
-    height: 2px;
-    background: rgba(59, 130, 246, 0.6);
-    z-index: 2;
-  }
-
-  .timeline-card {
-    padding: 1.3rem;
-  }
-
-  .step-card-title {
+    padding: 60px 16px 70px 16px;
   }
 }
 
-/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
   .journey-section {
-    padding: 45px 12px 65px 12px;
+    padding: 45px 12px 60px 12px;
   }
 
-  .journey-main-title {
+  .jstory__step + .jstory__step {
+    margin-top: 3.75rem;
   }
 
-  .journey-badge {
-    padding: 0.35rem 1rem;
+  .jstory__frame {
+    border-radius: 14px;
   }
+}
 
-  .timeline-cards-grid {
-    padding-right: 26px;
-  }
-
-  .timeline-cards-grid::before {
-    right: 5px;
-  }
-
-  .timeline-card::after {
-    right: -26px;
-    width: 21px;
-  }
-
-  .timeline-image-container {
-    aspect-ratio: 4 / 3;
-    min-height: 175px;
+@media (prefers-reduced-motion: reduce) {
+  .jstory-progress,
+  .jstory-progress__dot {
+    transition: none;
   }
 }

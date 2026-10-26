@@ -501,3 +501,29 @@
   .details-item {
   }
 }
+
+/* Link from a tutor's details to their results (ResultsSection) */
+.details-results-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.35rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #93c5fd;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(147, 197, 253, 0.45);
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.details-results-link:hover,
+.details-results-link:focus-visible {
+  color: #ffffff;
+  outline: none;
+  text-decoration-color: #60a5fa;
+}

@@ -15,7 +15,7 @@ const audiencePoints = [
   },
   {
     id: 2,
-    image: '/audience/audience-business.jpg',
+    image: '/audience/audience-business-hijab.jpg',
     tag: 'صاحب بزنس',
     sticker: 'مبيعات أكثر',
     accent: '#3b82f6',
@@ -100,10 +100,10 @@ export default function TargetAudienceSection() {
       <Button
         variant="outline"
         size="lg"
-        className="btn-glow btn-extra-large"
+        className="btn-glow"
         onClick={() => (window.location.href = "#join-us")}
       >
- Join us now      </Button>
+إنضم معانا توّا     </Button>
     </div>
   </div>
 </section>
