@@ -40,10 +40,8 @@ interface TutorResults {
 
 /*
  * DEMO DATA: every number, quote and screenshot below is mock content for layout only.
- * Replace each entry with the tutor's real, verifiable results, then set RESULTS_ARE_DEMO to false
- * to remove the "بيانات تجريبية" label from the page.
+ * Replace each entry with the tutor's real, verifiable results.
  */
-const RESULTS_ARE_DEMO = true;
 
 const RESULTS: Record<string, TutorResults> = {
   'mohamed-aziz': {

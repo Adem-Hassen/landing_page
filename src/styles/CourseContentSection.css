@@ -32,20 +32,6 @@
   position: relative;
 }
 
-.course-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1.25rem;
-  background: rgba(30, 78, 216, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  border-radius: 9999px;
-  color: #60a5fa;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 0 25px rgba(30, 78, 216, 0.2);
-  backdrop-filter: blur(8px);
-}
-
 .course-content-main-title {
   color: #f1f5f9;
   margin: 0 auto 1.25rem auto;
@@ -490,25 +476,6 @@
   color: #94a3b8;
 }
 
-.indicator-title-preview {
-  color: #f1f5f9;
-  margin-right: 0.65rem;
-  border-right: 1px solid rgba(59, 130, 246, 0.35);
-  padding-right: 0.75rem;
-  max-width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.gallery-drag-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #64748b;
-  direction: rtl;
-}
-
 /* ==========================================================================
    RESPONSIVE DESIGN (Tablets & Mobile)
    ========================================================================== */
@@ -847,11 +814,6 @@
   margin: 0.25rem 0 0;
   color: #f8fafc;
   font-weight: 600;
-}
-
-.mc-cta {
-  display: flex;
-  justify-content: center;
 }
 
 /* Mobile: bottom sheet */

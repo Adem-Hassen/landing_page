@@ -2,7 +2,6 @@ import '../../styles/JourneyTimeline.css';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import Button from '../shared/Button';
 
 interface TimelineStep {
   id: number;
@@ -93,13 +92,11 @@ function JourneyStep({
   index,
   isDesktop,
   reduceMotion,
-  onCta,
 }: {
   step: TimelineStep;
   index: number;
   isDesktop: boolean;
   reduceMotion: boolean;
-  onCta?: () => void;
 }) {
   const stepRef = useRef<HTMLLIElement>(null);
   const { scrollYProgress } = useScroll({ target: stepRef, offset: ['start end', 'end start'] });
@@ -220,10 +217,6 @@ export default function JourneyTimeline() {
       ?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   };
 
-  const scrollToVideo = () => {
-    document.getElementById('video-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
-
   return (
     <section className="journey-section" id="journey-timeline" dir="rtl">
       <div className="journey-container">
@@ -242,7 +235,6 @@ export default function JourneyTimeline() {
               index={i}
               isDesktop={isDesktop}
               reduceMotion={reduceMotion}
-              onCta={i === TIMELINE_STEPS.length - 1 ? scrollToVideo : undefined}
             />
           ))}
         </ol>

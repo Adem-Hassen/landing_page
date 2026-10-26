@@ -9,24 +9,13 @@
 @import "./styles/JourneyTimeline.css";
 @import "./styles/SolutionsSection.css";
 @import "./styles/CourseContentSection.css";
-@import "./styles/CoursePartsSection.css";
 @import "./styles/TargetAudienceSection.css";
-@import "./styles/WhyLearnSection.css";
 @import "./styles/ResultsSection.css";
 @import "./styles/OfferSection.css";
 @import "./styles/FAQSection.css";
 @import "./styles/Footer.css";
 
 /* Shared Base Utilities & Keyframes */
-.landing-section {
-  min-height: 100vh;
-  padding: 80px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-}
 
 @keyframes subtleGlow {
   0%, 100% {

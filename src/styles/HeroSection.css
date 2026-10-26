@@ -1,14 +1,5 @@
 /* ===== HERO SECTION STYLES ===== */
 /* Shared landing section base */
-.landing-section {
-    min-height: 100vh;
-    padding: 80px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-}
 .title {
   color: #cbd5e1; /* Lighter gray instead of white */
   max-width: 900px;
@@ -141,36 +132,7 @@
     }
 }
 
-.hero-divider {
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    border-radius: 2px;
-    animation: dividerPulse 2s ease-in-out infinite;
-    margin: 0.5rem 0; /* Reduced margin */
-}
-
-@keyframes dividerPulse {
-    0%, 100% {
-        transform: scaleX(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scaleX(1.2);
-        opacity: 0.8;
-    }
-}
-
 /* For better Arabic text rendering */
-.title2 {
-    color: #cbd5e1;
-    max-width: 800px;
-    margin: 0 auto;
-    direction: rtl;
-    text-align: center;
-    animation: fadeInUp 1s ease-out;
-    margin-bottom: 1rem; 
-}
 
 .video-section {
     width: 100%;
@@ -181,28 +143,6 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
-    .title2 {
-        margin-bottom: 0.5rem; /* Reduced on mobile */
-    }
-    
-    .hero-divider {
-        width: 80px;
-        margin: 0.25rem 0; /* Reduced on mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    .title2 {
-        margin-bottom: 0.25rem;
-    }
-    
-    .hero-divider {
-        width: 60px;
-        height: 3px;
-        margin: 0.2rem 0;
-    }
-}
 
 /* ===== VIDEO FRAME: glow + border beam ===== */
 @property --beam-head {

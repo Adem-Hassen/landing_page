@@ -173,29 +173,6 @@
   transform: translateY(-4px) scale(1.05);
 }
 
-.audience-panel-sticker {
-  position: absolute;
-  top: 1.4rem;
-  right: 1.25rem;
-  z-index: 2;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  color: #fff;
-  white-space: nowrap;
-  background: rgba(8, 13, 30, 0.6);
-  border: 1px solid var(--accent);
-  box-shadow: 0 8px 25px -5px var(--accent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transform: rotate(-5deg);
-  animation: stickerBob 3.5s ease-in-out infinite calc(var(--i) * 0.6s);
-}
-
-@keyframes stickerBob {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -8px; }
-}
-
 /* Bottom content */
 .audience-panel-content {
   position: absolute;
@@ -204,16 +181,6 @@
   padding: 1.75rem 1.5rem;
   text-align: right;
   direction: rtl;
-}
-
-.audience-panel-tag {
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  padding: 0.3rem 0.85rem;
-  border-radius: 999px;
-  color: #fff;
-  background: color-mix(in srgb, var(--accent) 35%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 70%, transparent);
 }
 
 .audience-panel-title {
@@ -237,27 +204,6 @@
   width: 120px;
 }
 
-.audience-panel-text {
-  margin: 0;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  color: #cbd5e1;
-  transform: translateY(10px);
-  transition:
-    max-height 0.6s ease,
-    opacity 0.5s ease,
-    margin 0.6s ease,
-    transform 0.6s ease;
-}
-
-.audience-panel:hover .audience-panel-text {
-  max-height: 140px;
-  opacity: 1;
-  margin-top: 0.75rem;
-  transform: none;
-}
-
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .audience-panel-title {
@@ -266,21 +212,9 @@
   .audience-panel-number {
     font-size: 3.5rem;
   }
-
-  .audience-panel-sticker {
-    padding: 0.4rem 0.8rem;
-  }
 }
 
 /* Tablets and touch devices: no hover, so show the description directly */
-@media (hover: none) and (min-width: 641px) {
-  .audience-panel-text {
-    max-height: 140px;
-    opacity: 1;
-    margin-top: 0.6rem;
-    transform: none;
-  }
-}
 
 @media (max-width: 768px) {
   .target-audience-section {
@@ -296,10 +230,6 @@
 
   .audience-panel-content {
     padding: 1.25rem 1rem;
-  }
-
-  .audience-panel-sticker {
-    display: none;
   }
 }
 
@@ -345,21 +275,11 @@
     padding: 0.9rem 1.1rem;
   }
 
-  .audience-panel-tag {
-    margin-bottom: 0.5rem;
-    padding: 0.2rem 0.7rem;
-  }
-
   .audience-panel-title {
   }
 
   .audience-panel-title::after {
     margin-top: 0.5rem;
-  }
-
-  .audience-panel-text,
-  .audience-panel:hover .audience-panel-text {
-    display: none;
   }
 
   .audience-panel-title::after {
@@ -391,12 +311,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .audience-panel,
-  .audience-panel-image,
-  .audience-panel-text {
+  .audience-panel-image {
     transition: none;
   }
 
-  .audience-panel-sticker,
   .audience-panel:hover::after {
     animation: none;
     transition: none;
@@ -438,4 +356,29 @@
   filter: blur(20px);
   animation: cornerGlow 3s ease-in-out infinite 2s;
   z-index: -1;
+}
+
+/* CTA under the audience panels (moved from the removed CoursePartsSection.css) */
+.course-parts-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+@media (max-width: 768px) {
+  .course-parts-cta {
+    margin-top: 3rem;
+    padding: 2.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-parts-cta {
+    margin-top: 2.5rem;
+    padding: 2rem 0;
+  }
 }

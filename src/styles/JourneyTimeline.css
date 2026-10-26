@@ -122,10 +122,6 @@
   box-shadow: 0 0 8px rgba(59, 130, 246, 0.7);
 }
 
-.jstory__cta {
-  margin-top: 2.25rem;
-}
-
 /* Image (end side: left in RTL) */
 .jstory__media {
   min-width: 0;

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface CourseModule {
   id: number;
   number: string;
@@ -7,7 +5,6 @@ export interface CourseModule {
   description: string;
   featured: boolean;
   featured_message?: string;
-  icon?: React.ReactNode;
   /** 540×570 WebP in /public/course-modules/ */
   image?: string;
   /** Short Arabic description of what the image shows */

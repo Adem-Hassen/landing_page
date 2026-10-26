@@ -27,40 +27,10 @@
   }
   
   /* Desktop Navigation */
-  .desktop-nav {
-    display: none;
-    gap: 2rem;
-  
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: #e2e8f0; /* Light gray for better readability on black */
-    transition: color 0.2s ease;
-  }
-  
-  .nav-link:hover {
-    color: #1E4ED8; /* Changed to #1E4ED8 */
-  }
   
   .login-section {
     display: none;
     margin-right:-50px
-  }
-
-  
-  .login-link {
-    text-decoration: none;
-    color: #e2e8f0; /* Light gray for better readability on black */
-    transition: all 0.2s ease;
-    padding: 0.5rem 1rem;
-    border: 1px solid #1E4ED8; /* Changed to #1E4ED8 */
-    border-radius: 5px;
-  }
-  
-  .login-link:hover {
-    color: #ffffff;
-    background-color: #1E4ED8; /* Changed to #1E4ED8 */
   }
   
 
@@ -79,9 +49,6 @@
   
   /* Desktop styles */
   @media (min-width: 1024px) {
-    .desktop-nav {
-      display: flex;
-    }
     
     .login-section {
       display: block;

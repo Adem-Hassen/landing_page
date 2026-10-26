@@ -5,7 +5,6 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import '../../styles/CourseContentSection.css';
 import { CircularGallery, type CircularGalleryRef } from '@/components/ui/circular-gallery';
 import { courseModules, type CourseModule } from '../../data/courseModules';
-import Button from '../shared/Button';
 import {
   Check,
   ChevronDown,
@@ -33,11 +32,9 @@ const isEagerCard = (index: number) => Math.min(index, MODULE_COUNT - index) <= 
 function MasterclassDialog({
   module,
   onClose,
-  onJoin,
 }: {
   module: CourseModule;
   onClose: () => void;
-  onJoin: () => void;
 }) {
   const reduceMotion = useReducedMotion() ?? false;
   const panelRef = useRef<HTMLDivElement>(null);
@@ -237,14 +234,6 @@ export default function CourseContentSection() {
     setMasterclassIndex(null);
     const opener = openerRef.current;
     requestAnimationFrame(() => opener?.focus({ preventScroll: true }));
-  }, []);
-
-  const joinFromMasterclass = useCallback(() => {
-    setMasterclassIndex(null);
-    // Wait for the scroll lock to be released before jumping to the form.
-    requestAnimationFrame(() => {
-      window.location.href = '#join-us';
-    });
   }, []);
 
   const handleNext = () => {
@@ -458,7 +447,6 @@ export default function CourseContentSection() {
               key={masterclassModule.id}
               module={masterclassModule}
               onClose={closeMasterclass}
-              onJoin={joinFromMasterclass}
             />
           )}
         </AnimatePresence>,
