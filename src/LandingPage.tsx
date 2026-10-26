@@ -1,49 +1,36 @@
 import "./LandingPage.css";
 import "./styles/Responsive.css";
-import { useCallback, useState } from "react";
+import { lazy, Suspense } from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import NavBar from "./components/shared/NavBar";
 import HeroSection from "./components/sections/HeroSection";
-import ProblemsSection from "./components/sections/ProblemsSection";
-import JourneyTimeline from "./components/sections/JourneyTimeline";
-import SolutionsSection from "./components/sections/SolutionsSection";
-import CourseContentSection from "./components/sections/CourseContentSection";
-import TargetAudienceSection from "./components/sections/TargetAudienceSection";
-import ResultsSection from "./components/sections/ResultsSection";
 
-import OfferSection from "./components/sections/OfferSection";
-import FAQSection from "./components/sections/FAQSection";
-import Footer from "./components/sections/Footer";
-import { TEACHERS } from "./data/teachers";
+// Hash links (e.g. the navbar CTA to #join-us) clicked before the chunk holding their target has arrived.
+let earlyHash = "";
+const rememberHash = () => {
+  earlyHash = window.location.hash;
+};
+window.addEventListener("hashchange", rememberHash);
+const takeEarlyHash = () => {
+  window.removeEventListener("hashchange", rememberHash);
+  return earlyHash;
+};
+
+const BelowFold = lazy(() => import("./BelowFold"));
 
 export default function LandingPage() {
-  // Tutor shown in ResultsSection; follows the SolutionsSection accordion.
-  const [tutorId, setTutorId] = useState(TEACHERS[0].id);
-
-  const handleActiveChange = useCallback((id: string) => {
-    setTutorId(id || TEACHERS[0].id);
-  }, []);
-
-  const handleShowResults = useCallback((id: string) => {
-    setTutorId(id);
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.getElementById("results")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
-  }, []);
-
+  // The hero uses the lightweight `m` components; sections below the fold bring the full `motion` in their chunk.
   return (
-    <div className="gradient-bg">
-      <div className="app-content">
-        <NavBar />
-        <HeroSection />
-        <ProblemsSection />
-        <JourneyTimeline />
-        <SolutionsSection onActiveChange={handleActiveChange} onShowResults={handleShowResults} />
-        <ResultsSection selectedId={tutorId} onSelect={setTutorId} />
-        <CourseContentSection />
-        <TargetAudienceSection />
-        <OfferSection />
-        <FAQSection />
-        <Footer />
+    <LazyMotion features={domAnimation}>
+      <div className="gradient-bg">
+        <div className="app-content">
+          <NavBar />
+          <HeroSection />
+          <Suspense fallback={<div style={{ minHeight: "100vh" }} aria-hidden="true" />}>
+            <BelowFold takeEarlyHash={takeEarlyHash} />
+          </Suspense>
+        </div>
       </div>
-    </div>
+    </LazyMotion>
   );
 }

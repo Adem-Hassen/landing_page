@@ -125,7 +125,14 @@ function MasterclassDialog({
         </h2>
 
         {module.image && (
-          <img className="mc-image" src={module.image} alt={module.imageAlt ?? ''} />
+          <img
+            className="mc-image"
+            src={module.image}
+            alt={module.imageAlt ?? ''}
+            width={540}
+            height={570}
+            decoding="async"
+          />
         )}
 
         <p className="mc-description">{module.description}</p>
@@ -172,6 +179,10 @@ function MasterclassDialog({
 
 export default function CourseContentSection() {
   const galleryRef = useRef<CircularGalleryRef>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion() ?? false;
+  // Auto-rotation re-renders the gallery every frame, so it only runs while the stage is near the viewport.
+  const [stageVisible, setStageVisible] = useState(true);
   const [activeModuleIndex, setActiveModuleIndex] = useState(0);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [masterclassIndex, setMasterclassIndex] = useState<number | null>(null);
@@ -195,6 +206,16 @@ export default function CourseContentSection() {
     },
     []
   );
+
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(([entry]) => setStageVisible(entry.isIntersecting), {
+      rootMargin: '200px 0px',
+    });
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
 
   const handleCardClick = (index: number, card?: HTMLElement | null) => {
     if (courseModules[index]?.isMasterclass) {
@@ -275,12 +296,12 @@ export default function CourseContentSection() {
         </div>
 
         {/* 3D Circular Course Content Gallery */}
-        <div className="circular-gallery-stage" onTransitionEnd={handleStageTransitionEnd}>
+        <div ref={stageRef} className="circular-gallery-stage" onTransitionEnd={handleStageTransitionEnd}>
           <CircularGallery
             ref={galleryRef}
             items={courseModules}
             reverseDirection={true}
-            isPaused={expandedIndex !== null || masterclassIndex !== null}
+            isPaused={expandedIndex !== null || masterclassIndex !== null || !stageVisible || reduceMotion}
             autoRotateSpeed={0.03}
             onActiveIndexChange={handleActiveIndexChange}
             renderItem={(item: CourseModule, index: number, isFront: boolean) => {

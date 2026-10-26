@@ -36,6 +36,52 @@
   display: block;
 }
 
+/* Lightweight YouTube facade: poster + play button, real player loads on click */
+.youtube-facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: #000;
+  cursor: pointer;
+  display: block;
+}
+
+.youtube-facade__poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.youtube-facade__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+}
+
+.youtube-facade__play-bg {
+  fill: #212121;
+  fill-opacity: 0.8;
+  transition: fill 0.15s ease, fill-opacity 0.15s ease;
+}
+
+.youtube-facade:hover .youtube-facade__play-bg,
+.youtube-facade:focus-visible .youtube-facade__play-bg {
+  fill: #f00;
+  fill-opacity: 1;
+}
+
+.youtube-facade:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: -3px;
+}
+
 .video-loading {
   position: absolute;
   top: 50%;

@@ -178,7 +178,10 @@ function ProofTile({
       <img
         src={proof.src}
         alt=""
+        width={1200}
+        height={900}
         loading="lazy"
+        decoding="async"
         draggable={false}
         className="rproof__img"
         onError={() => setFailed(true)}
@@ -508,7 +511,7 @@ export default function ResultsSection({ selectedId, onSelect }: ResultsSectionP
                   viewport={{ once: true, amount: 0.6 }}
                   transition={{ duration: 0.5, ease: EASE, delay: i * 0.08 }}
                 >
-                  <img src={teacher.image} alt="" loading="lazy" />
+                  <img src={teacher.avatar} alt="" width={192} height={256} loading="lazy" decoding="async" />
                 </motion.span>
                 <span className="rtab__name">{teacher.name}</span>
                 {selected && (

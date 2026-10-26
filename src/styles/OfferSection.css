@@ -463,12 +463,6 @@
   margin-bottom: 1rem;
 }
 
-/* Ensure buttons are visible */
-button {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 /* Ensure contact info card matches height */
 .contact-info-card {
   height: 100%;

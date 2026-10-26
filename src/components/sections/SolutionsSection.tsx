@@ -82,9 +82,14 @@ export default function SolutionsSection({ onActiveChange, onShowResults }: Solu
                 <div className="strip-image-container">
                   <img
                     src={teacher.image}
+                    srcSet={teacher.imageSrcSet}
+                    sizes="(min-width: 1024px) 420px, 100vw"
                     alt={teacher.name}
                     className="strip-image"
+                    width={896}
+                    height={1200}
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="strip-gradient-overlay" />
                 </div>

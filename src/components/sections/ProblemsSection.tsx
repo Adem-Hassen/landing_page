@@ -19,6 +19,7 @@ type Side = 'left' | 'right';
  */
 const questions: {
   image: string;
+  imageSrcSet: string;
   alt: string;
   title: string;
   description: string;
@@ -28,7 +29,8 @@ const questions: {
   side: Side;
 }[] = [
   {
-    image: '/problems/problem-information-overload.jpg',
+    image: '/problems/problem-information-overload-1024.webp',
+    imageSrcSet: '/problems/problem-information-overload-512.webp 512w, /problems/problem-information-overload-1024.webp 1024w',
     alt: 'شاب حاير قدّام برشا فيديوهات ومعلومات',
     title: 'معادش عارف منين تتعلم',
     description: 'فما برشا معلومات و إنتي حاير منين و كفاش تبدا',
@@ -38,7 +40,8 @@ const questions: {
     side: 'right',
   },
   {
-    image: '/problems/problem-trust-advice.jpg',
+    image: '/problems/problem-trust-advice-1024.webp',
+    imageSrcSet: '/problems/problem-trust-advice-512.webp 512w, /problems/problem-trust-advice-1024.webp 1024w',
     alt: 'شاب يثبّت بالمكبّرة في صناع المحتوى',
     title: 'هل الناس إلي تعطي في المعلومة، يعرفوا فاش قاعدين يعملوا و نجحوا بالحق ؟',
     description: 'توا برشا صناع محتوى تعطي في معلومات على كيفاش تعمل فلوس، أما لازم تعرف تختار الشخص المناسب !',
@@ -48,7 +51,8 @@ const questions: {
     side: 'right',
   },
   {
-    image: '/problems/problem-self-doubt.jpg',
+    image: '/problems/problem-self-doubt-1024.webp',
+    imageSrcSet: '/problems/problem-self-doubt-512.webp 512w, /problems/problem-self-doubt-1024.webp 1024w',
     alt: 'شاب يخمّم إذا ينجم ينجح في التجارة الإلكترونية',
     title: 'هل نجم ننجح انا زادة ؟',
     description: 'بالك صعيبة ولا منجمش روحي ولا لزمني راس مال كبير ولا برش وقت !؟!',
@@ -227,7 +231,17 @@ export default function ProblemsSection() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, ease: EASE, delay: i * IMAGE_STAGGER }}
                 >
-                  <img src={q.image} alt={q.alt} loading="lazy" className="pswipe__img" />
+                  <img
+                    src={q.image}
+                    srcSet={q.imageSrcSet}
+                    sizes="min(380px, 90vw)"
+                    alt={q.alt}
+                    width={1024}
+                    height={768}
+                    loading="lazy"
+                    decoding="async"
+                    className="pswipe__img"
+                  />
                   <div className="pswipe__body">
                     <h4 className="pcallout__title">{q.title}</h4>
                     <p className="pcallout__text">{q.description}</p>
@@ -275,8 +289,13 @@ export default function ProblemsSection() {
                   >
                     <img
                       src={q.image}
+                      srcSet={q.imageSrcSet}
+                      sizes="460px"
                       alt={q.alt}
+                      width={1024}
+                      height={768}
                       loading="lazy"
+                      decoding="async"
                       className="pcluster__img"
                       style={{ objectPosition: q.focus }}
                     />

@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useRef, useState, type CSSProperties } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import '../../styles/HeroSection.css';
 import Button from '../shared/Button';
 import VideoPlayer from '../shared/VideoPlayer';
@@ -63,7 +63,7 @@ export default function HeroSection() {
             <span className="hero-line">
               {words.map((word, i) => (
                 <Fragment key={i}>
-                  <motion.span
+                  <m.span
                     className="hero-word"
                     initial={reduceMotion ? false : wordFrom}
                     animate={wordTo}
@@ -74,7 +74,7 @@ export default function HeroSection() {
                     }}
                   >
                     {word}
-                  </motion.span>
+                  </m.span>
                   {i < words.length - 1 ? ' ' : null}
                 </Fragment>
               ))}
@@ -82,7 +82,7 @@ export default function HeroSection() {
           </Fragment>
         ))}
       </h1>
-      <motion.div
+      <m.div
         className="cta-section"
         initial={reduceMotion ? false : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -91,16 +91,20 @@ export default function HeroSection() {
         <Button variant="outline" size="lg" className="btn-glow" onClick={scrollToVideo}>
           تفرج في الفيديو قبل كل شي
         </Button>
-      </motion.div>
+      </m.div>
       <div id="video-section" className="video-section">
-        <motion.div
+        <m.div
           ref={frameRef}
           className="video-frame"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: EASE, delay: VIDEO_DELAY }}
         >
-          <VideoPlayer videoUrl="https://www.youtube.com/watch?v=Kl-I7sUcAOY" />
+          <VideoPlayer
+            videoUrl="https://www.youtube.com/watch?v=Kl-I7sUcAOY"
+            poster="/video/hero-poster-1280.webp"
+            posterSrcSet="/video/hero-poster-640.webp 640w, /video/hero-poster-1280.webp 1280w"
+          />
           <svg className="video-beam" aria-hidden="true" focusable="false">
             <rect className="video-beam__base" pathLength={100} />
             {BEAM_SEGMENTS.map(({ len, cls }) => (
@@ -112,7 +116,7 @@ export default function HeroSection() {
               />
             ))}
           </svg>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

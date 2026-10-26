@@ -6,7 +6,8 @@ import Button from '../shared/Button';
 const audiencePoints = [
   {
     id: 1,
-    image: '/audience/audience-income.jpg',
+    image: '/audience/audience-income-1152.webp',
+    imageSrcSet: '/audience/audience-income-576.webp 576w, /audience/audience-income-1152.webp 1152w',
     tag: 'دخل جديد',
     sticker: 'دخل من الدار',
     accent: '#3b82f6',
@@ -15,7 +16,8 @@ const audiencePoints = [
   },
   {
     id: 2,
-    image: '/audience/audience-business-hijab.jpg',
+    image: '/audience/audience-business-hijab-1152.webp',
+    imageSrcSet: '/audience/audience-business-hijab-576.webp 576w, /audience/audience-business-hijab-1152.webp 1152w',
     tag: 'صاحب بزنس',
     sticker: 'مبيعات أكثر',
     accent: '#3b82f6',
@@ -24,7 +26,8 @@ const audiencePoints = [
   },
   {
     id: 3,
-    image: '/audience/audience-beginner.jpg',
+    image: '/audience/audience-beginner-1152.webp',
+    imageSrcSet: '/audience/audience-beginner-576.webp 576w, /audience/audience-beginner-1152.webp 1152w',
     tag: 'مبتدئ',
     sticker: 'من الصفر',
     accent: '#3b82f6',
@@ -83,7 +86,17 @@ export default function TargetAudienceSection() {
           style={{ '--accent': point.accent, '--i': index } as CSSProperties}
           onMouseMove={handleSpotlight}
         >
-          <img src={point.image} alt={point.title} className="audience-panel-image" />
+          <img
+            src={point.image}
+            srcSet={point.imageSrcSet}
+            sizes="(min-width: 1024px) 700px, 100vw"
+            alt={point.title}
+            className="audience-panel-image"
+            width={1152}
+            height={864}
+            loading="lazy"
+            decoding="async"
+          />
           <div className="audience-panel-shade"></div>
           <div className="audience-panel-spotlight"></div>
 

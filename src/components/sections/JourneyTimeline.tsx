@@ -10,8 +10,9 @@ interface TimelineStep {
   intro?: string;
   bullets?: string[];
   description?: string;
-  /** 4:5 WebP, 1600×2000. Prompts: docs/journey-image-prompts.md */
+  /** 4:5 WebP, 1200×1500 (+600w), generated from image-sources/. Prompts: docs/journey-image-prompts.md */
   image?: string;
+  imageSrcSet?: string;
   imageAlt: string;
   imagePrompt: string;
 }
@@ -27,7 +28,8 @@ const TIMELINE_STEPS: TimelineStep[] = [
       'فما طرق قديمة متع خدمة معادش تخدم',
       'كل يوم فما حاجات جدد في الدومين و صعيب تلقى شكون يحكي عليهم',
     ],
-    image: '/journey/step-1.webp',
+    image: '/journey/step-1-1200.webp',
+    imageSrcSet: '/journey/step-1-600.webp 600w, /journey/step-1-1200.webp 1200w',
     imageAlt: 'شاب حاير قدّام برشا شاشات فيها معلومات متضاربة',
     imagePrompt:
       'Clean modern 3D illustration, portrait composition. A young Tunisian man in his mid-20s with short dark hair and a simple navy hoodie sits at a tidy desk in a bright Mediterranean apartment, looking overwhelmed as many translucent floating screens crowd around him, filled with tangled feeds and outdated, contradictory charts drawn as abstract shapes and lines only. Behind the noise, an open arched doorway glows with a calm path of brand-blue light (#1E4ED8), the real opportunity. Soft studio lighting, smooth matte materials, gentle depth of field, slightly elevated three-quarter view. Palette: brand blue, off-white, light grey, slate, one warm terracotta accent. Clear subject with generous space around him.',
@@ -38,7 +40,8 @@ const TIMELINE_STEPS: TimelineStep[] = [
     title: 'صعوبة البدايات',
     description:
       'أول مابديت في مجال التجارة الإلكترونية كنت ضايع وفهمت أنوا لازمني نتعلم ونستثمر في روحي قبل ، خذيت كورس الاول جربت وفشلت، كورس الثاني جربت وفشلت، كورس الثالث جربت وفشلت. إلى أن اكتشفت الحقيقة إلي خلاتني نبدى نشوف في النتائج إلي كنت نحلم بيه',
-    image: '/journey/step-2.webp',
+    image: '/journey/step-2-1200.webp',
+    imageSrcSet: '/journey/step-2-600.webp 600w, /journey/step-2-1200.webp 1200w',
     imageAlt: 'شاب تاعب في الليل قدّام تلاثة لابتوبات ما نجحوش',
     imagePrompt:
       'Clean modern 3D illustration, portrait composition, the same character as in the reference image: a young Tunisian man in his mid-20s, short dark hair, simple navy hoodie. Late at night he sits at a desk in a quiet Mediterranean apartment, shoulders slumped, rubbing his eyes with one hand, tired and frustrated. In front of him stand three laptops in a row, each screen dim and greyed out to show an attempt that did not work. A small desk lamp casts a soft warm pool of light; cool brand-blue (#1E4ED8) moonlight falls through a window with white-and-blue shutters. Soft studio lighting, smooth matte materials, gentle depth of field, eye-level camera. Palette: brand blue, slate, light grey, off-white, one warm lamp accent.',
@@ -49,7 +52,8 @@ const TIMELINE_STEPS: TimelineStep[] = [
     title: 'الإكتشاف إلي حول الفشل لنجاح كبير',
     description:
       'بعد ماخذيت كورسات في تونس وجربت وممشاتش الأمور ، اكتشفت أنوا بش تنجح في التجارة الإلكترونية لازمك تتعلم أكثر و من مصادر أفضل و نجرب طرق جديدة متع خدمة . وقتها بديت نشوف في نتائج إلي نحب عليها وهذا الكل بفضل ربي قبل كلشي',
-    image: '/journey/step-3.webp',
+    image: '/journey/step-3-1200.webp',
+    imageSrcSet: '/journey/step-3-600.webp 600w, /journey/step-3-1200.webp 1200w',
     imageAlt: 'شاب ماشي على ثنية جديدة من بلاطات زرقاء تضوي',
     imagePrompt:
       'Clean modern 3D illustration, portrait composition, the same character as in the reference image: a young Tunisian man in his mid-20s, short dark hair, simple navy hoodie. He rises from his chair with a look of quiet realisation as a single clear, soft light appears in front of him. Ahead of him, a new path of glowing brand-blue tiles (#1E4ED8) lights up across the floor of a calm Mediterranean room, leading toward a window with white-and-blue architecture outside. The old clutter behind him fades into soft shadow. Soft studio lighting, smooth matte materials, gentle depth of field, low three-quarter camera angle. Palette: brand blue, off-white, light grey, slate, one subtle warm accent. Open space ahead of him.',
@@ -60,7 +64,8 @@ const TIMELINE_STEPS: TimelineStep[] = [
     title: 'الخلاصة',
     description:
       'الحكاية ماهيش صعيبة، لكن لازم تبدأ بطريقة صحيحة، خطوات واضحة و أهم حاجة من انسان تعدى بالخطوات الكل و وصل للنتيجة إلي تحب عليها إنتي.',
-    image: '/journey/step-4.webp',
+    image: '/journey/step-4-1200.webp',
+    imageSrcSet: '/journey/step-4-600.webp 600w, /journey/step-4-1200.webp 1200w',
     imageAlt: 'شاب طالع في درج واضح يوصل لراية صغيرة',
     imagePrompt:
       'Clean modern 3D illustration, portrait composition, the same character as in the reference image: a young Tunisian man in his mid-20s, short dark hair, simple navy hoodie. He calmly walks up a short flight of clear, well-lit steps with a relaxed, confident posture. Each step is edged with a thin line of brand-blue light (#1E4ED8), and a small plain pennant flag with no marking or symbol stands at the top. The scene sits on a bright Mediterranean rooftop terrace with soft white-and-blue architecture blurred behind. The feeling is a simple, guided path, not a dramatic victory. Soft studio lighting, smooth matte materials, gentle depth of field, side three-quarter camera angle. Palette: brand blue, off-white, light grey, slate, one warm sunlight accent.',
@@ -89,12 +94,10 @@ const textItem: Variants = {
 
 function JourneyStep({
   step,
-  index,
   isDesktop,
   reduceMotion,
 }: {
   step: TimelineStep;
-  index: number;
   isDesktop: boolean;
   reduceMotion: boolean;
 }) {
@@ -155,10 +158,13 @@ function JourneyStep({
               {step.image && (
                 <motion.img
                   src={step.image}
+                  srcSet={step.imageSrcSet}
+                  sizes="(min-width: 1024px) 560px, 100vw"
                   alt={step.imageAlt}
-                  width={1600}
-                  height={2000}
-                  loading={index === 0 ? 'eager' : 'lazy'}
+                  width={1200}
+                  height={1500}
+                  loading="lazy"
+                  decoding="async"
                   className="jstory__img"
                   initial={cinematic ? { scale: 1.08 } : false}
                   whileInView={cinematic ? { scale: 1 } : undefined}
@@ -228,11 +234,10 @@ export default function JourneyTimeline() {
         </h2>
 
         <ol className="jstory" ref={listRef}>
-          {TIMELINE_STEPS.map((step, i) => (
+          {TIMELINE_STEPS.map((step) => (
             <JourneyStep
               key={step.id}
               step={step}
-              index={i}
               isDesktop={isDesktop}
               reduceMotion={reduceMotion}
             />
